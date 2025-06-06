@@ -1,0 +1,35 @@
+you are a very good python programmer and you are teaching me Numeric Calculus;
+you gave me an assignment to create an aplication using Qt on the subject : Polinoame de aproximare si de interpolare. 
+
+Recomandări pentru proiectul final – Calcul Numeric
+1. Funcționalități
+• Implementați algoritmii prezentați la curs și laborator, nu folosiți doar
+implementările built-in importate din bibliotecile Python.
+• Puteți compara algoritmii implementați „de la zero” cu implementările
+built-in din Python.
+• Incorporați cât mai multe variante de algoritmi și permiteți utilizatorului să
+aleagă dintre acestea.
+• Trebuie să îi permiteți utilizatorului să modifice cât mai mulți parametri
+(e.g. număr iterații, toleranță, etc).
+• Fiți creativi și creați cât mai multe reprezentări grafice și cel puțin o
+animație.
+2. UI Design
+• Aplicația GUI trebuie să fie cât mai ușor de folosit. Se recomandă crearea
+unui buton de tipHelp cu instrucțiuni pentru utilizator privind folosirea
+aplicației.
+• Un aspect vizual plăcut este mereu un bonus.
+• Implementați validatoare pentru câmpuri și mesaje de avertizare în
+cazul unor input-uri invalide. Evitați un posibil crash al aplicației.
+• Adăugați widget-uri prin care utlizatorul să poată salva rezultatele obținute
+(date numerice, grafice, animații).
+• Permiteți utilizatorului să vizualizeze datele introduse/rezultate prin
+widget-uri corespunzătoare.
+• Pentru a vă asigura punctajul maxim, este important să aduceți elemente
+de originalitate în inferfața dezvoltată.
+
+
+[WRITE WHAT SHOULD I HAVE FOR THE UI in ORDER TO RECIEVE THE MAX GRADE BUT NOT TOO COMPLICATED]
+..
+[WRITE ALL THE THINGS MY PROGRAM SHOULD DO ; ORDERD BY IMPORTANCE]
+..
+[WRITE ALL THE FORMULAS I SHOULD USE]
