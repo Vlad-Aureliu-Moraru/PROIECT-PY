@@ -88,9 +88,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def set_interval(self):
-        self.stop_animation() # Stop animation if interval changes
-
-        intervalRegEx = r"^\[\d+,d+\]$"
+       # self.stop_animation() # Stop animation if interval changes
+        intervalRegEx = r"^\[\d+,\d+\]$"
         interval_str = self.ui.AB_INPUT_INTERVAL.text()
         match = re.fullmatch(intervalRegEx, interval_str)
 
