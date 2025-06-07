@@ -1,7 +1,9 @@
-
-
 import math
 import numpy as np # NumPy is excellent for creating arrays of numbers and for mathematical operations
+
+def target_function(val):
+    return math.cos(math.pi * val)
+
 def map_to_unit_interval(y, a, b):
   
     if a == b:
