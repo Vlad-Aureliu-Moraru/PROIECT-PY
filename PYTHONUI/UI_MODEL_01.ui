@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>650</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="font">
@@ -27,11 +27,11 @@
       <x>0</x>
       <y>0</y>
       <width>800</width>
-      <height>650</height>
+      <height>700</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -96,59 +96,11 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>200</y>
-        <width>201</width>
-        <height>191</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="radio_buttons_lay">
-       <item>
-        <widget class="QLabel" name="AB_LABEL_METODE">
-         <property name="font">
-          <font>
-           <family>Droid Sans Fallback</family>
-           <pointsize>14</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Metoda de Input</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="AB_RADIO_CSV">
-         <property name="text">
-          <string>CSV</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="AB_RADIO_TXT">
-         <property name="text">
-          <string>TXT</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="AB_RADIO_MANUAL">
-         <property name="text">
-          <string>MANUAL</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>420</y>
+        <y>460</y>
         <width>351</width>
         <height>171</height>
        </rect>
@@ -202,22 +154,6 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QPushButton" name="AB_BUTTON_GRAFIC">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Salvează Grafic</string>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="0">
         <widget class="QPushButton" name="AB_BUTTON_ERROR">
          <property name="font">
@@ -231,6 +167,22 @@
          </property>
          <property name="text">
           <string>Calculează Error</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="AB_BUTTON_GRAFIC">
+         <property name="font">
+          <font>
+           <family>Fira Sans</family>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <italic>true</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Calculează mai multe puncte</string>
          </property>
         </widget>
        </item>
@@ -273,7 +225,7 @@
       <property name="geometry">
        <rect>
         <x>370</x>
-        <y>430</y>
+        <y>460</y>
         <width>411</width>
         <height>164</height>
        </rect>
@@ -368,13 +320,46 @@
        <rect>
         <x>360</x>
         <y>10</y>
-        <width>411</width>
-        <height>391</height>
+        <width>421</width>
+        <height>421</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QWidget" name="AB_WIG_GRAF" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_13">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>190</y>
+        <width>149</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="Grad_layout_2">
+       <item>
+        <widget class="QLabel" name="AB_LABEL_GRAD_2">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Nr de puncte:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="AB_SLIDER_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -1151,6 +1136,16 @@
              <string>Variabile</string>
             </property>
            </row>
+           <row>
+            <property name="text">
+             <string>Bernstein</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Spline</string>
+            </property>
+           </row>
            <column>
             <property name="text">
              <string>Metoda</string>
@@ -1192,16 +1187,94 @@
      <attribute name="title">
       <string>Help</string>
      </attribute>
-     <widget class="QWidget" name="verticalLayoutWidget_14">
+     <widget class="QWidget" name="gridLayoutWidget_6">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>10</y>
-        <width>751</width>
-        <height>111</height>
+        <width>771</width>
+        <height>571</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_11"/>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QTreeWidget" name="treeWidget">
+         <column>
+          <property name="text">
+           <string>Introducere</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Teorie</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Instrucțiuni de Utilizare </string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Despre</string>
+          </property>
+         </column>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Aproximare Bernstein</string>
+          </property>
+          <property name="text">
+           <string>Tab: Bernstein</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Interpolare Lagrange</string>
+          </property>
+          <property name="text">
+           <string>Tab: Lagrange</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Interpolare Spline</string>
+          </property>
+          <property name="text">
+           <string>Tab: Spline</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="text">
+           <string>Tab: Comparare </string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QTextBrowser" name="textBrowser"/>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
