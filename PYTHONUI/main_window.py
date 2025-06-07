@@ -1,176 +1,221 @@
-# main_window.py
+import sys
 
 import re
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
 
-# Import your generated UI class
+import math
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+from PyQt5.QtWidgets import QMessageBox 
+
+import matplotlib.pyplot as plt
+
 from ui_proiect import Ui_MainFrame
 
-# Import your helper managers
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+
+from matplotlib.figure import Figure
+
+from matplotlib.animation import FuncAnimation 
+
+import numpy as np 
 import BersteinFunctions as bnf
-from plot_manager import PlotManager
-from slider_manager import SliderManager
-from animation_manager import AnimationManager
+
+
 
 class MainWindow(QtWidgets.QMainWindow):
+
+    def _plot_approximation(self, num_points=200):
+
+        """
+
+        Internal method to clear and redraw the Matplotlib graph based on current parameters.
+
+        This is called whenever relevant parameters (interval, degree) change.
+
+        """
+
+        # Clear the previous plot content
+
+        self.axes.cla()
+        # Get current parameters from the instance variables and UI
+        a = self.interval_1
+        b = self.interval_2
+        n_degree = self.ui.AB_SLIDER.value() # Degree comes from the integer slider
+
+        # Generate evenly spaced y-values across the current interval for plotting
+        y_values = np.linspace(a, b, num_points)
+
+
+        # Calculate the original function values
+        original_func_values = [bnf.target_function(y) for y in y_values]
+
+
+        # Calculate the Bernstein approximation values for each point
+
+        # Using a list comprehension for efficiency here.
+        bernstein_approx_values = [bnf.aprox_berstein_on_interval(bnf.target_function, y, n_degree, a, b) for y in y_values]
+
+
+        # Plot the data on the axes
+        self.axes.plot(y_values, original_func_values, label='Functia Originala $f(y)$', color='blue', linestyle='-')
+        self.axes.plot(y_values, bernstein_approx_values, label=f'Aproximare Bernstein ($n={n_degree}$)', color='red', linestyle='--')
+
+
+        # Add labels, title, and legend for clarity
+
+        self.axes.set_title(f"Aproximare Bernstein pe intervalul $[{a:.2f}, {b:.2f}]$")
+        self.axes.set_xlabel("y")
+        self.axes.set_ylabel("$f(y)$ / Aproximare")
+        self.axes.legend()
+        self.axes.grid(True)
+        # Add vertical lines to clearly mark the interval boundaries
+        self.axes.axvline(a, color='gray', linestyle=':', linewidth=0.8, label=f'Inceput Interval ({a:.2f})')
+        self.axes.axvline(b, color='gray', linestyle=':', linewidth=0.8, label=f'Sfarsit Interval({b:.2f})')
+        # Redraw the canvas to display the updated plot in the GUI
+
+        self.canvas.draw()
+
+    
+
+    
+
+    def calculeaza_func(self):
+        punct=self.ui.AB_SLIDER_PUNCT.value()/100
+        grad = self.ui.AB_SLIDER.value()
+        print(f"{punct}:{self.interval_1};{grad}")
+        bnf.aprox_berstein_on_interval(bnf.target_function,punct,grad,self.interval_1,self.interval_2)
+        print(f"real value {bnf.target_function(punct)}")
+        self._plot_approximation()
+
+    
+
+    def set_interval(self):
+        intervalRegEx = r"^\[\d+,\d+\]$"
+        interval = self.ui.AB_INPUT_INTERVAL.text();
+        if not re.match(intervalRegEx, interval):
+            print("ERROR MATCHING")
+            return
+        first_half = interval[1:2]
+        second_half = interval[3:4]
+        self.interval_1 = int(first_half)
+        self.interval_2 = int(second_half)
+        print(self.interval_1)
+        print(self.interval_2)
+        self.ui.AB_SLIDER_PUNCT.setMinimum(self.interval_1*self.SLIDER_SCALE_FACTOR)
+        self.ui.AB_SLIDER_PUNCT.setMaximum(self.interval_2*self.SLIDER_SCALE_FACTOR)
+        print(interval)
+
+    
+
+    def update_grad_label(self,value):
+        self.ui.AB_LABEL_GRAD.setText(f"GRAD:{value}")
+
+    
+
+    def update_punct_label(self,value):
+        self.ui.AB_LABEL_PUNCT.setText(f"Punct:{value/100}")
+
+
+    def start_animation(self):
+        """Starts the animation of the Bernstein approximation."""
+        print("ANIMATION")
+        if self.is_animating:
+            return # Animation already runnin
+        self.ui.statusbar.showMessage("Starting animation...", 2000)
+        self.is_animating = True
+        # Ensure initial plot for blitting setup
+
+        self._plot_approximation(fixed_degree=self.current_anim_degree)
+
+
+        # Create the animation object
+
+        # frames: degrees from min to max slider value
+
+        # interval: delay between frames in ms
+
+        # blit: true for smoother animation (only redraws changing parts)
+
+        # repeat: whether the animation should loop
+
+        self.animation = FuncAnimation(
+            self.figure,
+            self._update_animation_frame,
+            frames=range(self.ui.AB_SLIDER.minimum(), self.ui.AB_SLIDER.maximum() + 1),
+            interval=self.anim_interval_ms,
+            blit=True,
+            repeat=False # Set to True if you want it to loop
+
+        )
+
+        self.canvas.draw_idle() # Redraw once to ensure animation starts correctly
+
     def __init__(self):
         super().__init__()
+        self.interval_1= 0.0;
+        self.interval_2 = 1.0;
+        self.SLIDER_SCALE_FACTOR = 100
         self.ui = Ui_MainFrame()
         self.ui.setupUi(self)
 
-        # Initialize core interval variables
-        self.interval_1 = 0.0
-        self.interval_2 = 1.0
 
-        # --- Initialize Managers ---
-        self.plot_manager = PlotManager(self.ui.AB_WIG_GRAF, self.interval_1, self.interval_2)
-        self.slider_manager = SliderManager(scale_factor=1000) # Use the same scale factor
+# --- Matplotlib Graph Setup ---
 
-        # Animation manager will be initialized later when frames range is known (from slider)
-        self.animation_manager = None
+        # 1. Create a Figure object for the plot
+        self.figure = Figure(figsize=(5, 4), dpi=100)
+        # 2. Add an Axes (subplot) to the figure. This is where we'll draw.
+        self.axes = self.figure.add_subplot(111)
+        # 3. Create a FigureCanvasQTAgg instance (the actual Qt widget for the plot)
+        self.canvas = FigureCanvas(self.figure)
+        # 4. Create a NavigationToolbar for interactive features (zoom, pan, save)
+        self.toolbar = NavigationToolbar(self.canvas, self)
 
-        # --- UI Element Setup ---
-        # Set up the 'grad' (degree) slider
-        self.ui.AB_SLIDER.setMinimum(1)
-        self.ui.AB_SLIDER.setMaximum(50)
-        self.ui.AB_SLIDER.setValue(5) # Default degree
 
-        # Set up the 'punct' slider for float values using the slider manager
-        self.slider_manager.setup_float_slider(self.ui.AB_SLIDER_PUNCT, self.interval_1, self.interval_2)
-        self.slider_manager.set_slider_float_value(self.ui.AB_SLIDER_PUNCT, (self.interval_1 + self.interval_2) / 2)
+        # 5. Add the canvas and toolbar to your UI's graph placeholder widget.
+        # Ensure you have a QWidget in your .ui file named 'graph_container_widget'
 
-        # --- Connect Signals to Slots ---
+        # or similar, which acts as the parent for the graph.
+
+        # The line below assumes `self.ui.graph_container_widget` exists.
+
+        self.graph_layout = QtWidgets.QVBoxLayout(self.ui.AB_WIG_GRAF)
+
+        self.graph_layout.addWidget(self.toolbar)
+
+        self.graph_layout.addWidget(self.canvas)
+
+
+
+ # --- Animation Specific Attributes ---
+        self.animation = None         # Stores the FuncAnimation object
+        self.is_animating = False     # Flag to track animation state
+        self.anim_interval_ms = 100   # Milliseconds between frames (adjust for speed)
+
+# Connect animation buttons (assuming these exist in your UI)
+
+
+        # You'll need to add QPushButtons with these objectNames in Qt Designer
+
+        self.ui.AB_BUTTON_PLAY.clicked.connect(self.start_animation)
+
+       #self.ui.ANIM_PAUSE_button.clicked.connect(self.pause_animation)
+
+       # self.ui.ANIM_STOP_button.clicked.connect(self.stop_animation)
+
         self.ui.AB_BUTTON_CALCULEAZA.clicked.connect(self.calculeaza_func)
+
         self.ui.AB_SLIDER.valueChanged.connect(self.update_grad_label)
         self.ui.AB_SLIDER_PUNCT.valueChanged.connect(self.update_punct_label)
         self.ui.AB_BUTTON_INTERVAL.clicked.connect(self.set_interval)
+        self.ui.AB_SLIDER.setMinimum(1) 
+        self.ui.AB_SLIDER.setMaximum(50)
+        self.ui.AB_SLIDER.setValue(5)
 
-        # Connect animation buttons
-        self.ui.AB_BUTTON_PLAY.clicked.connect(self.start_animation)
-        # Assuming you add these buttons in your UI
-        self.ui.AB_BUTTON_PREV.clicked.connect(self.pause_animation)
-        self.ui.AB_BUTTON_NEXT.clicked.connect(self.stop_animation)
-
-
-        # --- Initial UI State ---
+        self.ui.AB_SLIDER_PUNCT.setMinimum(0)
+        self.ui.AB_SLIDER_PUNCT.setMaximum(1*self.SLIDER_SCALE_FACTOR)
         self.update_grad_label(self.ui.AB_SLIDER.value())
-        self.update_punct_label(self.ui.AB_SLIDER_PUNCT.value())
         self.ui.OUTPUT_textfield.setReadOnly(True)
-        self.ui.statusbar.showMessage("Gata de calcularea aproximarii Bernstein.", 3000)
-
-        # Initial static plot
-        self.plot_manager.plot_approximation(self.ui.AB_SLIDER.value())
-
-
-    # --- UI Event Handlers ---
-    def calculeaza_func(self):
-        self.stop_animation() # Stop any active animation
-
-        punct = self.slider_manager.get_slider_float_value(self.ui.AB_SLIDER_PUNCT)
-        grad = self.ui.AB_SLIDER.value()
-
-        print(f"Calculating for point: {punct:.3f}, interval: [{self.interval_1:.2f},{self.interval_2:.2f}], degree: {grad}")
-
-        try:
-            approximated_value = bnf.aprox_berstein_on_interval(
-                bnf.target_function, punct, grad, self.interval_1, self.interval_2
-            )
-            actual_value = bnf.target_function(punct)
-            self.ui.OUTPUT_textfield.setText(f"Aproximare: {approximated_value:.6f} | Valoare Reala: {actual_value:.6f}")
-            self.ui.statusbar.showMessage("Calcul efectuat cu succes!", 3000)
-        except ValueError as e:
-            QMessageBox.critical(self, "Eroare de Calcul", str(e))
-            self.ui.statusbar.showMessage("Calcul esuat!", 3000)
-
-        # Plot the result, highlighting the point
-        self.plot_manager.plot_approximation(n_degree=grad, punct_eval=punct)
-
-
-    def set_interval(self):
-        self.stop_animation() # Stop animation if interval changes
-
-        intervalRegEx = r"^\[\d+,d+\]$"
-        interval_str = self.ui.AB_INPUT_INTERVAL.text()
-        match = re.fullmatch(intervalRegEx, interval_str)
-
-        if not match:
-            QMessageBox.warning(self, "Eroare Intrare",
-                                  "Introduceti intervalul in formatul [start,end], "
-                                  "ex: [-1.5, 10] sau [0, 5].")
-            self.ui.statusbar.showMessage("Format interval invalid!", 3000)
-            return
-
-        try:
-            parsed_interval_1 = float(match.group(1))
-            parsed_interval_2 = float(match.group(2))
-
-            if parsed_interval_1 >= parsed_interval_2:
-                QMessageBox.warning(self, "Interval Invalid", "Inceputul intervalului trebuie sa fie strict mai mic decat sfarsitul.")
-                self.ui.statusbar.showMessage("Inceput interval >= sfarsit!", 3000)
-                return
-
-            self.interval_1 = parsed_interval_1
-            self.interval_2 = parsed_interval_2
-
-            # Update the plot manager's interval
-            self.plot_manager.set_interval(self.interval_1, self.interval_2)
-
-            print(f"Interval set to: [{self.interval_1:.2f}, {self.interval_2:.2f}]")
-            self.ui.statusbar.showMessage(f"Interval set to [{self.interval_1:.2f}, {self.interval_2:.2f}]", 3000)
-
-            # Update the 'punct' slider's range based on the new float interval
-            self.slider_manager.setup_float_slider(self.ui.AB_SLIDER_PUNCT, self.interval_1, self.interval_2)
-            self.update_punct_label(self.ui.AB_SLIDER_PUNCT.value()) # Update label immediately
-
-            # Re-plot the graph with the new interval
-            self.plot_manager.plot_approximation(self.ui.AB_SLIDER.value())
-
-        except ValueError as e:
-            QMessageBox.critical(self, "Eroare de Parsare", f"Eroare la conversia numerelor intervalului: {e}")
-            self.ui.statusbar.showMessage("Eroare la parsarea numerelor!", 3000)
-        except Exception as e:
-            QMessageBox.critical(self, "Eroare Neasteptata", f"A aparut o eroare neasteptata: {e}")
-            self.ui.statusbar.showMessage("A aparut o eroare neasteptata!", 3000)
-
-    # --- Slider Label Update Functions ---
-    def update_grad_label(self, value):
-        self.ui.AB_LABEL_GRAD.setText(f"GRAD: {value}")
-
-    def update_punct_label(self, value):
-        float_value = self.slider_manager.get_slider_float_value(self.ui.AB_SLIDER_PUNCT)
-        self.ui.AB_LABEL_PUNCT.setText(f"Punct: {float_value:.3f}")
-
-    # --- Animation Control Methods ---
-    def start_animation(self):
-        self.ui.statusbar.showMessage("Pornire animatie...", 2000)
-        if self.animation_manager is None or not self.animation_manager.is_running:
-            # Initialize animation manager if not already, or after a stop
-            frames_range = range(self.ui.AB_SLIDER.minimum(), self.ui.AB_SLIDER.maximum() + 1)
-            self.animation_manager = AnimationManager(
-                self.plot_manager.figure,
-                self.plot_manager.update_plot_data, # Pass the update method of PlotManager
-                frames_range,
-                interval_ms=100
-            )
-            self.animation_manager.start()
-        else:
-            self.animation_manager.start() # If paused, resume
-        print("Animation started/resumed.")
-
-
-    def pause_animation(self):
-        if self.animation_manager:
-            #self.animation_manager.pause()
-            self.ui.statusbar.showMessage("Animatie intrerupta.", 2000)
-            print("Animation paused.")
-
-    def stop_animation(self):
-        if self.animation_manager:
-            #self.animation_manager.stop()
-            self.ui.statusbar.showMessage("Animatie oprita.", 2000)
-            print("Animation stopped.")
-            # Re-plot a static graph after stopping
-            self.plot_manager.plot_approximation(self.ui.AB_SLIDER.value())
-        else:
-            self.animation_manager.cle()
+        self.ui.statusbar.showMessage("Ready to calculate Bernstein approximation.", 3000) 
