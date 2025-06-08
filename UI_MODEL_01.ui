@@ -13,7 +13,6 @@
   <property name="font">
    <font>
     <pointsize>12</pointsize>
-    <weight>50</weight>
     <bold>false</bold>
    </font>
   </property>
@@ -53,7 +52,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>14</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -78,7 +76,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>14</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -90,7 +87,7 @@
        <item>
         <widget class="QSlider" name="AB_SLIDER_PUNCT">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -112,7 +109,6 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
-           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -139,7 +135,6 @@
          <property name="font">
           <font>
            <pointsize>14</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -171,7 +166,6 @@
             <font>
              <family>DejaVu Sans</family>
              <pointsize>8</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -185,7 +179,6 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -200,7 +193,6 @@
             <font>
              <family>DejaVu Sans</family>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -217,7 +209,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -235,7 +226,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -279,7 +269,6 @@
          <property name="font">
           <font>
            <pointsize>14</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -314,29 +303,12 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
-           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="text">
           <string>Calculează</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="IL_BUTTON_DERIVATA">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>false</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Calculează derivata</string>
          </property>
         </widget>
        </item>
@@ -357,7 +329,6 @@
          <property name="font">
           <font>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -374,7 +345,6 @@
          <property name="font">
           <font>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -424,7 +394,6 @@
            <property name="font">
             <font>
              <pointsize>8</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -438,7 +407,6 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -452,7 +420,6 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -469,7 +436,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -487,7 +453,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -587,7 +552,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>14</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -602,7 +566,6 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
-           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -618,7 +581,6 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
-           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -634,7 +596,6 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
-           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -663,7 +624,6 @@
            <property name="font">
             <font>
              <pointsize>8</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -677,7 +637,6 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -691,7 +650,6 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -708,7 +666,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -726,7 +683,6 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
-           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
