@@ -13,6 +13,7 @@
   <property name="font">
    <font>
     <pointsize>12</pointsize>
+    <weight>50</weight>
     <bold>false</bold>
    </font>
   </property>
@@ -30,7 +31,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -52,6 +53,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>14</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -76,6 +78,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>14</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -85,11 +88,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QSlider" name="AB_SLIDER_PUNCT">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
+        <widget class="QSlider" name="AB_SLIDER_PUNCT"/>
        </item>
       </layout>
      </widget>
@@ -109,6 +108,7 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
+           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -135,6 +135,7 @@
          <property name="font">
           <font>
            <pointsize>14</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -166,6 +167,7 @@
             <font>
              <family>DejaVu Sans</family>
              <pointsize>8</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -179,6 +181,7 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -193,6 +196,7 @@
             <font>
              <family>DejaVu Sans</family>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -209,6 +213,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -226,6 +231,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -269,6 +275,7 @@
          <property name="font">
           <font>
            <pointsize>14</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -303,6 +310,7 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
+           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -329,6 +337,7 @@
          <property name="font">
           <font>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -345,6 +354,7 @@
          <property name="font">
           <font>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -394,6 +404,7 @@
            <property name="font">
             <font>
              <pointsize>8</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -407,6 +418,7 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -420,6 +432,7 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -436,6 +449,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -453,6 +467,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -486,37 +501,6 @@
      <attribute name="title">
       <string>Interpolare Spline</string>
      </attribute>
-     <widget class="QWidget" name="verticalLayoutWidget_5">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>351</width>
-        <height>281</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QTableWidget" name="IS_TABEL">
-         <row>
-          <property name="text">
-           <string>Variabile</string>
-          </property>
-         </row>
-         <column>
-          <property name="text">
-           <string>X</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Y</string>
-          </property>
-         </column>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="verticalLayoutWidget_10">
       <property name="geometry">
        <rect>
@@ -552,6 +536,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>14</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -566,6 +551,7 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
+           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -581,6 +567,7 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
+           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -596,6 +583,7 @@
           <font>
            <family>Fira Sans</family>
            <pointsize>12</pointsize>
+           <weight>50</weight>
            <italic>true</italic>
            <bold>false</bold>
           </font>
@@ -624,6 +612,7 @@
            <property name="font">
             <font>
              <pointsize>8</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -637,6 +626,7 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -650,6 +640,7 @@
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -666,6 +657,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -683,6 +675,7 @@
           <font>
            <family>Fira Mono</family>
            <pointsize>12</pointsize>
+           <weight>75</weight>
            <bold>true</bold>
           </font>
          </property>
@@ -708,6 +701,71 @@
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
         <widget class="QWidget" name="IS_WIG_GRAF" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>361</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="IS_LABEL_INTERVAL_">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Interval [a,b]</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="IS_TEXTFIELD_INTERVAL"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="IS_LABEL_NODURI">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>NrNoduri</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="IS_TEXTFIELD_NODURI"/>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QTableWidget" name="IL_TABEL_2">
+         <row>
+          <property name="text">
+           <string>Variabile</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>X</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Y</string>
+          </property>
+         </column>
+        </widget>
        </item>
       </layout>
      </widget>
