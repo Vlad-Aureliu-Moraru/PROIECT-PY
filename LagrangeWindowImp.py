@@ -37,12 +37,12 @@ class LagrangeWindowImp:
         self.ui.IL_TEXTFIELD_OUTPUT.setPlaceholderText("Enter point to evaluate")
         
         # Connect buttons
-        self.ui.IL_BUTTON_CALCULEAZA.clicked.connect(self.calculate_lagrange)
+        #self.ui.IL_BUTTON_CALCULEAZA.clicked.connect(self.calculate_lagrange)
         self.ui.IL_BUTTON_DERIVATA.clicked.connect(self.calculate_lagrange_derivative)
-        self.ui.IL_BUTTON_ERROR.clicked.connect(self.calculate_lagrange_error)
-        self.ui.IL_BUTTON_GRAFIC.clicked.connect(self.plot_lagrange)
+        #self.ui.IL_BUTTON_ERROR.clicked.connect(self.calculate_lagrange_error)
+        #self.ui.IL_BUTTON_GRAFIC.clicked.connect(self.plot_lagrange)
         self.ui.IL_BUTTON_ADAUGA.clicked.connect(self.add_lagrange_point)
-        self.ui.IL_BUTTON_STERGE.clicked.connect(self.remove_lagrange_point)
+        #self.ui.IL_BUTTON_STERGE.clicked.connect(self.remove_lagrange_point)
         
         # Show initial status message
         self.statusbar.showMessage("Ready for Lagrange interpolation. Please add points first.", 3000)
