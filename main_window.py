@@ -24,6 +24,7 @@ from plot_handler import PlotHandler
 from ui_helpers import UIHelpers
 from LagrangeWindowImp import LagrangeWindowImp
 from BersteinWindowImp import BersteinWindowImp
+from SplineWindowImp import SplineWindowImp
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -39,6 +40,9 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # Initialize Bernstein approximation
         self.bernstein_window = BersteinWindowImp(self.ui, self.ui.statusbar, self)
+        
+        # Initialize Spline interpolation
+        self.spline_window = SplineWindowImp(self.ui, self.ui.statusbar, self)
         
         # Set up Lagrange interpolation table
         self.ui.IL_TABEL.setColumnCount(2)
