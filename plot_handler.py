@@ -1,5 +1,4 @@
 # plot_handler.py
-
 import numpy as np
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
@@ -22,8 +21,8 @@ class PlotHandler:
 
         self.interval_1 = initial_interval_a
         self.interval_2 = initial_interval_b
-        self.original_line = None # Will store the Line2D object for the original function
-        self.approx_line = None   # Will store the Line2D object for the approximation
+        self.original_line = None 
+        self.approx_line = None   
 
         self.animation = None
         self.is_animating = False
@@ -54,13 +53,9 @@ class PlotHandler:
         self.axes.axvline(b, color='gray', linestyle=':', linewidth=0.8, label=f'Sfarsit Interval ({b:.2f})')
 
         self.canvas.draw()
-        return self.approx_line, self.original_line # Return lines for blitting
+        return self.approx_line, self.original_line 
 
     def _update_animation_frame(self, frame_degree):
-        """
-        Internal method for FuncAnimation to update plot data.
-        This is called by FuncAnimation, not directly by MainWindow.
-        """
         a = self.interval_1
         b = self.interval_2
         y_values = np.linspace(a, b, 200)
@@ -74,13 +69,13 @@ class PlotHandler:
         self.axes.legend()
         self.axes.set_title(f"Aproximare Bernstein pe intervalul $[{a:.2f}, {b:.2f}]$ (Grad $n={frame_degree}$)")
 
-        return self.approx_line, self.original_line, # Return all artists that need blitting
+        return self.approx_line, self.original_line, 
 
     def start_animation(self, min_degree, max_degree):
         if self.is_animating:
             return
         self.is_animating = True
-        self.plot_approximation(n_degree=min_degree) # Plot initial frame for blitting setup
+        self.plot_approximation(n_degree=min_degree) 
 
         self.animation = FuncAnimation(
             self.figure,
@@ -94,7 +89,6 @@ class PlotHandler:
 
     def stop_animation(self):
         if self.animation:
-           # self.animation.event_source.stop()
             self.animation = None
             self.is_animating = False
         else:
