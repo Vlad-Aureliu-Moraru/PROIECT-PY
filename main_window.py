@@ -1,29 +1,26 @@
 # main_window.py
-
 import sys
 import re
 import math
+
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-
-from ui_proiect import Ui_MainFrame
-import BersteinFunctions as bnf
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
-
 from matplotlib.animation import FuncAnimation 
-
 import numpy as np 
-import BersteinFunctions as bnf
-import LagrangeFunctions as lf
 
-# Import the new modules
 from plot_handler import PlotHandler
 from ui_helpers import UIHelpers
+
 from LagrangeWindowImp import LagrangeWindowImp
 from BersteinWindowImp import BersteinWindowImp
+from ui_proiect import Ui_MainFrame
+
+import BersteinFunctions as bnf
+import LagrangeFunctions as lf
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -31,51 +28,39 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = Ui_MainFrame()
         self.ui.setupUi(self)
         
-        # Initialize UI helpers
         self.ui_helpers = UIHelpers(slider_scale_factor=100)
-        
-        # Initialize Lagrange interpolation
         self.lagrange_window = LagrangeWindowImp(self.ui, self.ui.statusbar, self)
         
-        # Initialize Bernstein approximation
         self.bernstein_window = BersteinWindowImp(self.ui, self.ui.statusbar, self)
-        
-        # Set up Lagrange interpolation table
         self.ui.IL_TABEL.setColumnCount(2)
         self.ui.IL_TABEL.setHorizontalHeaderLabels(['X', 'Y'])
         
-        # Initialize Lagrange interpolation variables
         self.lagrange_x_points = []
         self.lagrange_y_points = []
         self.lagrange_figure = None
         self.lagrange_canvas = None
         
-        # Connect Lagrange interpolation UI elements
         self.ui.IL_BUTTON_ADAUGA.clicked.connect(self.add_lagrange_point)
         
         self.setup_lagrange_graph()
 
     def setup_lagrange_graph(self):
-        """Set up the graph for Lagrange interpolation"""
         self.lagrange_figure = Figure(figsize=(5, 4), dpi=100)
         self.lagrange_axes = self.lagrange_figure.add_subplot(111)
         self.lagrange_canvas = FigureCanvas(self.lagrange_figure)
         self.lagrange_toolbar = NavigationToolbar(self.lagrange_canvas, self)
         
-        # Add the canvas and toolbar to the UI
         self.lagrange_graph_layout = QtWidgets.QVBoxLayout(self.ui.IL_WIG_GRAF)
         self.lagrange_graph_layout.addWidget(self.lagrange_toolbar)
         self.lagrange_graph_layout.addWidget(self.lagrange_canvas)
         
-        # Add initial message to the plot
-        self.lagrange_axes.text(0.5, 0.5, 'Adaugă puncte pentru interpolare',
+        self.lagrange_axes.text(0.5, 0.5, '',
                               horizontalalignment='center',
                               verticalalignment='center',
                               transform=self.lagrange_axes.transAxes)
         self.lagrange_canvas.draw()
     
     def add_lagrange_point(self):
-        """Add a new point to the Lagrange interpolation table"""
         try:
             num_nodes_text = self.ui.IL_TEXTFIELD_NODURI.text().strip()
             if not num_nodes_text:

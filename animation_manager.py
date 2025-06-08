@@ -23,16 +23,16 @@ class AnimationManager:
             repeat=False
         )
         self.is_running = True
-        self.fig.canvas.draw_idle() # Ensures it updates properly
+        self.fig.canvas.draw_idle() 
 
     def pause(self):
         if self.animation and self.is_running:
-            self.animation.event_source.stop()
+            # self.animation.event_source.stop()
             self.is_running = False
 
     def stop(self):
         if self.animation:
-            self.animation.event_source.stop()
+            # self.animation.event_source.stop()
             self.animation = None
             self.is_running = False
         

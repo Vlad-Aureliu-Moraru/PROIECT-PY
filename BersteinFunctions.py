@@ -5,7 +5,6 @@ def target_function(val):
     return math.cos(math.pi * val)
 
 def map_to_unit_interval(y, a, b):
-  
     if a == b:
         if y == a:
             return 0.0 

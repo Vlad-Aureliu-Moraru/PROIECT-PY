@@ -8,23 +8,8 @@ def target_function(val):
     return math.cos(math.pi * val)
 
 def lagrange_interpolation(x_points: List[float], y_points: List[float], x_eval: float) -> float:
-    """
-    Calculate the Lagrange interpolation polynomial value at point x_eval.
-    
-    Args:
-        x_points: List of x-coordinates of the interpolation points
-        y_points: List of y-coordinates of the interpolation points
-        x_eval: Point at which to evaluate the interpolation polynomial
-        
-    Returns:
-        float: The interpolated value at x_eval
-    """
-    if len(x_points) != len(y_points):
-        raise ValueError("x_points and y_points must have the same length")
-    
     n = len(x_points)
     result = 0.0
-    
     for i in range(n):
         term = y_points[i]
         for j in range(n):
@@ -34,56 +19,7 @@ def lagrange_interpolation(x_points: List[float], y_points: List[float], x_eval:
     
     return result
 
-def lagrange_derivative(x_points: List[float], y_points: List[float], x_eval: float) -> float:
-    """
-    Calculate the derivative of the Lagrange interpolation polynomial at point x_eval.
-    
-    Args:
-        x_points: List of x-coordinates of the interpolation points
-        y_points: List of y-coordinates of the interpolation points
-        x_eval: Point at which to evaluate the derivative
-        
-    Returns:
-        float: The derivative value at x_eval
-    """
-    if len(x_points) != len(y_points):
-        raise ValueError("x_points and y_points must have the same length")
-    
-    n = len(x_points)
-    result = 0.0
-    
-    for i in range(n):
-        term = y_points[i]
-        for j in range(n):
-            if i != j:
-                # Calculate the derivative of the Lagrange basis polynomial
-                numerator = 1.0
-                denominator = 1.0
-                for k in range(n):
-                    if k != i and k != j:
-                        numerator *= (x_eval - x_points[k])
-                        denominator *= (x_points[i] - x_points[k])
-                term *= numerator / denominator
-        result += term
-    
-    return result
-
 def calculate_interpolation_error(x_points: List[float], y_points: List[float], num_eval_points: int = 1000) -> float:
-    """
-    Calculate the maximum error between the Lagrange interpolation and the target function.
-    
-    Args:
-        x_points: List of x-coordinates of the interpolation points
-        y_points: List of y-coordinates of the interpolation points
-        num_eval_points: Number of points to use for error evaluation
-        
-    Returns:
-        float: The maximum absolute error between interpolation and target function
-    """
-    if len(x_points) != len(y_points):
-        raise ValueError("x_points and y_points must have the same length")
-    
-    # Create a dense set of points for error evaluation
     x_min, x_max = min(x_points), max(x_points)
     x_eval = np.linspace(x_min, x_max, num_eval_points)
     
@@ -98,38 +34,22 @@ def calculate_interpolation_error(x_points: List[float], y_points: List[float], 
 
 def plot_lagrange_interpolation(x_points: List[float], y_points: List[float], 
                               num_points: int = 1000) -> Tuple[plt.Figure, plt.Axes]:
-    """
-    Plot the Lagrange interpolation polynomial and the target function.
-    
-    Args:
-        x_points: List of x-coordinates of the interpolation points
-        y_points: List of y-coordinates of the interpolation points
-        num_points: Number of points to use for plotting the interpolation
-        
-    Returns:
-        Tuple[plt.Figure, plt.Axes]: The figure and axes objects
-    """
-    if len(x_points) != len(y_points):
-        raise ValueError("x_points and y_points must have the same length")
     
     fig, ax = plt.subplots(figsize=(10, 6))
     
-    # Plot interpolation points
-    ax.scatter(x_points, y_points, color='red', label='Interpolation Points')
+    ax.scatter(x_points, y_points, color='red', label='Punctele de Interpolare')
     
-    # Plot interpolation polynomial
     x_min, x_max = min(x_points), max(x_points)
     x_plot = np.linspace(x_min, x_max, num_points)
     y_plot = [lagrange_interpolation(x_points, y_points, x) for x in x_plot]
-    ax.plot(x_plot, y_plot, 'b-', label='Lagrange Interpolation')
+    ax.plot(x_plot, y_plot, 'b-', label='Interpolare Lagrange')
     
-    # Plot target function
     y_target = [target_function(x) for x in x_plot]
-    ax.plot(x_plot, y_target, 'g--', label='Target Function')
+    ax.plot(x_plot, y_target, 'g--', label='Functia in py')
     
     ax.grid(True)
     ax.legend()
-    ax.set_title('Lagrange Interpolation')
+    ax.set_title('Interpolare Lagrange')
     ax.set_xlabel('x')
     ax.set_ylabel('y')
     
