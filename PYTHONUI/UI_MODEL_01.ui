@@ -100,44 +100,12 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>460</y>
+        <y>530</y>
         <width>351</width>
-        <height>171</height>
+        <height>91</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="button_lay">
-       <item row="2" column="0">
-        <widget class="QPushButton" name="AB_BUTTON_COMPARA">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Compară</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QPushButton" name="AB_BUTTON_ANIMATIE">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Salvează Animatie</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QPushButton" name="AB_BUTTON_CALCULEAZA">
          <property name="font">
@@ -151,38 +119,6 @@
          </property>
          <property name="text">
           <string>Calculează</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QPushButton" name="AB_BUTTON_ERROR">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Calculează Error</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="AB_BUTTON_GRAFIC">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Calculează mai multe puncte</string>
          </property>
         </widget>
        </item>
@@ -237,13 +173,14 @@
           <widget class="QPushButton" name="AB_BUTTON_PREV">
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>DejaVu Sans</family>
+             <pointsize>8</pointsize>
              <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string>◄◄</string>
+            <string>⏸</string>
            </property>
           </widget>
          </item>
@@ -265,13 +202,14 @@
           <widget class="QPushButton" name="AB_BUTTON_NEXT">
            <property name="font">
             <font>
+             <family>DejaVu Sans</family>
              <pointsize>12</pointsize>
              <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string>►►</string>
+            <string>⟳</string>
            </property>
           </widget>
          </item>
@@ -372,46 +310,12 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>410</y>
+        <y>470</y>
         <width>331</width>
         <height>163</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QPushButton" name="IL_BUTTON_STERGE">
-           <property name="font">
-            <font>
-             <family>Fira Sans</family>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Șterge punct</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="IL_BUTTON_ADAUGA">
-           <property name="font">
-            <font>
-             <family>Fira Sans</family>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Adaugă Punct</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
        <item>
         <widget class="QPushButton" name="IL_BUTTON_CALCULEAZA">
          <property name="font">
@@ -444,127 +348,6 @@
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QPushButton" name="IL_BUTTON_GRAFIC">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Salvează Grafic</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="IL_BUTTON_ERROR">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Calculează Error</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_8">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>240</y>
-        <width>191</width>
-        <height>154</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QLabel" name="IL_LABEL_METODE">
-         <property name="font">
-          <font>
-           <family>Fira Mono</family>
-           <pointsize>14</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Metoda de Input</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IL_RADIO_CSV">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>CSV</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IL_RADIO_TXT">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TXT</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IL_RADIO_MANUAL">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>MANUAL</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IL_RADIO_MOUSE">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>MOUSE</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="formLayoutWidget">
@@ -572,13 +355,20 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>331</width>
-        <height>221</height>
+        <width>321</width>
+        <height>431</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="IL_LABEL_INTERVAL">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Interval [a,b]</string>
          </property>
@@ -589,6 +379,13 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="IL_LABEL_NODURI">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>NrNoduri</string>
          </property>
@@ -622,7 +419,7 @@
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>410</y>
+        <y>470</y>
         <width>411</width>
         <height>164</height>
        </rect>
@@ -634,13 +431,13 @@
           <widget class="QPushButton" name="IL_BUTTON_PREV">
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <pointsize>8</pointsize>
              <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string>◄◄</string>
+            <string>⏸</string>
            </property>
           </widget>
          </item>
@@ -668,7 +465,7 @@
             </font>
            </property>
            <property name="text">
-            <string>►►</string>
+            <string>⟳</string>
            </property>
           </widget>
          </item>
@@ -718,7 +515,7 @@
         <x>360</x>
         <y>10</y>
         <width>411</width>
-        <height>391</height>
+        <height>431</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -737,8 +534,8 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>361</width>
-        <height>221</height>
+        <width>351</width>
+        <height>281</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -763,166 +560,20 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="verticalLayoutWidget_9">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>250</y>
-        <width>171</width>
-        <height>154</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <item>
-        <widget class="QLabel" name="IS_LABEL_METODA">
-         <property name="font">
-          <font>
-           <family>Fira Mono</family>
-           <pointsize>14</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Metoda de Input</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IS_RADIO_CSV">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>CSV</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IS_RADIO_TXT">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>TXT</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IS_RADIO_MANUAL">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>MANUAL</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="IS_RADIO_MOUSE">
-         <property name="font">
-          <font>
-           <family>Fira Sans</family>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <italic>true</italic>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>MOUSE</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="verticalLayoutWidget_10">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>420</y>
+        <y>550</y>
         <width>351</width>
-        <height>161</height>
+        <height>81</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QPushButton" name="IS_BUTTON_STERGE">
-           <property name="font">
-            <font>
-             <family>Fira Sans</family>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Șterge punct</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="IS_BUTTON_ADAUGA">
-           <property name="font">
-            <font>
-             <family>Fira Sans</family>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Adaugă Punct</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
         <widget class="QPushButton" name="IS_BUTTON_CALCULEAZA">
          <property name="text">
           <string>Calculează</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="IS_BUTTON_COMPARA">
-         <property name="text">
-          <string>Compară</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="IS_BUTTON_EXPORT">
-         <property name="text">
-          <string>Exportă Date</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="IS_BUTTON_ERROR">
-         <property name="text">
-          <string>Calculează Error</string>
          </property>
         </widget>
        </item>
@@ -932,7 +583,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>250</y>
+        <y>300</y>
         <width>181</width>
         <height>154</height>
        </rect>
@@ -1007,7 +658,7 @@
       <property name="geometry">
        <rect>
         <x>380</x>
-        <y>420</y>
+        <y>470</y>
         <width>411</width>
         <height>164</height>
        </rect>
@@ -1019,13 +670,13 @@
           <widget class="QPushButton" name="IS_BUTTON_PREV">
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <pointsize>8</pointsize>
              <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string>◄◄</string>
+            <string>⏸</string>
            </property>
           </widget>
          </item>
@@ -1053,7 +704,7 @@
             </font>
            </property>
            <property name="text">
-            <string>►►</string>
+            <string>⟳</string>
            </property>
           </widget>
          </item>
@@ -1103,7 +754,7 @@
         <x>380</x>
         <y>20</y>
         <width>411</width>
-        <height>391</height>
+        <height>421</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
