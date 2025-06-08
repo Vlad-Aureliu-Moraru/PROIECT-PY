@@ -32,7 +32,7 @@ class AnimationManager:
 
     def stop(self):
         if self.animation:
-            #self.animation.event_source.stop()
+            self.animation.event_source.stop()
             self.animation = None
             self.is_running = False
         
