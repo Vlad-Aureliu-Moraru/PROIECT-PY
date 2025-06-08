@@ -7,6 +7,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 import LagrangeFunctions as lf
+from matplotlib.animation import FuncAnimation
 
 class LagrangeWindowImp:
     def __init__(self, ui, statusbar, parent_widget):
@@ -18,6 +19,10 @@ class LagrangeWindowImp:
         self.lagrange_figure = None
         self.lagrange_canvas = None
         self.lagrange_axes = None
+        self.animation = None
+        self.current_points = 0
+        self.max_points = 0
+        self.animation_interval = 1000  # 1 second between frames
         
         # Set up UI elements
         self.setup_ui()
@@ -35,14 +40,13 @@ class LagrangeWindowImp:
         self.ui.IL_TEXTFIELD_INTERVAL.setPlaceholderText("Enter interval [a,b]")
         self.ui.IL_TEXTFIELD_NODURI.setPlaceholderText("Enter number of nodes")
         self.ui.IL_TEXTFIELD_OUTPUT.setPlaceholderText("Enter point to evaluate")
+        self.ui.IL_TEXTFIELD_ERROR.setPlaceholderText("Enter error")
         
         # Connect buttons
-        #self.ui.IL_BUTTON_CALCULEAZA.clicked.connect(self.calculate_lagrange)
-        self.ui.IL_BUTTON_DERIVATA.clicked.connect(self.calculate_lagrange_derivative)
-        #self.ui.IL_BUTTON_ERROR.clicked.connect(self.calculate_lagrange_error)
-        #self.ui.IL_BUTTON_GRAFIC.clicked.connect(self.plot_lagrange)
         self.ui.IL_BUTTON_ADAUGA.clicked.connect(self.add_lagrange_point)
-        #self.ui.IL_BUTTON_STERGE.clicked.connect(self.remove_lagrange_point)
+        self.ui.IL_BUTTON_PLAY.clicked.connect(self.start_animation)
+        self.ui.IL_BUTTON_PREV.clicked.connect(self.stop_animation)
+        self.ui.IL_BUTTON_NEXT.clicked.connect(self.reset_animation)
         
         # Show initial status message
         self.statusbar.showMessage("Ready for Lagrange interpolation. Please add points first.", 3000)
@@ -67,7 +71,7 @@ class LagrangeWindowImp:
         self.lagrange_canvas.draw()
 
     def add_lagrange_point(self):
-        """Add a new point to the Lagrange interpolation table"""
+        """Add points and calculate Lagrange interpolation"""
         try:
             # Get the number of nodes from the input field
             num_nodes_text = self.ui.IL_TEXTFIELD_NODURI.text().strip()
@@ -91,11 +95,16 @@ class LagrangeWindowImp:
             if a >= b:
                 raise ValueError("Interval start must be less than interval end")
             
+            # Store the interval and max points for animation
+            self.interval = (a, b)
+            self.max_points = num_nodes
+            self.current_points = 0
+            
             # Generate evenly spaced x points
             x_points = np.linspace(a, b, num_nodes)
             
-            # Generate y points using a sample function (you can modify this)
-            y_points = [math.sin(x) for x in x_points]
+            # Generate y points using the target function
+            y_points = [lf.target_function(x) for x in x_points]
             
             # Clear existing points
             self.lagrange_x_points = []
@@ -111,113 +120,100 @@ class LagrangeWindowImp:
                 self.ui.IL_TABEL.setItem(row, 0, QtWidgets.QTableWidgetItem(f"{x:.4f}"))
                 self.ui.IL_TABEL.setItem(row, 1, QtWidgets.QTableWidgetItem(f"{y:.4f}"))
             
+            # Calculate interpolation at the midpoint of the interval
+            x_eval = (a + b) / 2
+            interpolated_value = lf.lagrange_interpolation(self.lagrange_x_points, self.lagrange_y_points, x_eval)
+            actual_value = lf.target_function(x_eval)
+            
+            # Calculate the maximum error
+            max_error = lf.calculate_interpolation_error(self.lagrange_x_points, self.lagrange_y_points)
+            
+            # Display the results
+            self.ui.IL_TEXTFIELD_OUTPUT.setText(f"Interpolated: {interpolated_value:.6f} | Actual: {actual_value:.6f}")
+            self.ui.IL_TEXTFIELD_ERROR.setText(f"{max_error:.6f}")
+            
             # Update the plot
             self.plot_lagrange()
             
             # Show success message
-            self.statusbar.showMessage(f"Added {num_nodes} points for interpolation", 3000)
+            self.statusbar.showMessage(f"Added {num_nodes} points. Max error: {max_error:.6f}", 3000)
             
         except ValueError as e:
             QMessageBox.warning(self.ui, "Error", str(e))
             self.statusbar.showMessage("Failed to add points. Please check your input.", 3000)
 
-    def remove_lagrange_point(self):
-        """Remove the selected point from the Lagrange interpolation table"""
-        current_row = self.ui.IL_TABEL.currentRow()
-        if current_row >= 0:
-            self.ui.IL_TABEL.removeRow(current_row)
-            self.lagrange_x_points.pop(current_row)
-            self.lagrange_y_points.pop(current_row)
+    def update_animation(self, frame):
+        """Update the animation frame"""
+        if self.current_points < self.max_points:
+            self.current_points += 1
+            a, b = self.interval
             
-            if self.lagrange_x_points:
-                self.plot_lagrange()
-                self.statusbar.showMessage(f"Removed point. {len(self.lagrange_x_points)} points remaining.", 3000)
-            else:
-                # Reset the plot to show the initial message
-                self.lagrange_axes.clear()
-                self.lagrange_axes.text(0.5, 0.5, 'Add points to see the interpolation',
-                                      horizontalalignment='center',
-                                      verticalalignment='center',
-                                      transform=self.lagrange_axes.transAxes)
-                self.lagrange_canvas.draw()
-                self.statusbar.showMessage("No points available. Please add points first.", 3000)
+            # Generate points up to current count
+            x_points = np.linspace(a, b, self.current_points)
+            y_points = [lf.target_function(x) for x in x_points]
+            
+            # Update the plot
+            self.lagrange_axes.clear()
+            
+            # Plot target function
+            x_plot = np.linspace(a, b, 1000)
+            y_target = [lf.target_function(x) for x in x_plot]
+            self.lagrange_axes.plot(x_plot, y_target, 'g--', label='Target Function')
+            
+            # Plot interpolation points
+            self.lagrange_axes.scatter(x_points, y_points, color='red', label='Interpolation Points')
+            
+            # Plot interpolation curve
+            y_interp = [lf.lagrange_interpolation(x_points, y_points, x) for x in x_plot]
+            self.lagrange_axes.plot(x_plot, y_interp, 'b-', label='Lagrange Interpolation')
+            
+            self.lagrange_axes.grid(True)
+            self.lagrange_axes.legend()
+            self.lagrange_axes.set_title(f'Lagrange Interpolation (Points: {self.current_points})')
+            self.lagrange_axes.set_xlabel('x')
+            self.lagrange_axes.set_ylabel('y')
+            
+            self.lagrange_canvas.draw()
+            
+            # Update status
+            self.statusbar.showMessage(f"Animation: {self.current_points}/{self.max_points} points", 1000)
+            
+            return self.lagrange_axes.artists
+        return []
 
-    def calculate_lagrange(self):
-        """Calculate the Lagrange interpolation at the given point"""
-        try:
-            if not self.lagrange_x_points:
-                raise ValueError("No points available for interpolation. Please add points first.")
+    def start_animation(self):
+        """Start the animation"""
+        if not self.lagrange_x_points:
+            QMessageBox.warning(self.ui, "Warning", "Please add points first")
+            return
             
-            # Get the point to evaluate from the output field
-            x_eval_text = self.ui.IL_TEXTFIELD_OUTPUT.text().strip()
-            if not x_eval_text:
-                raise ValueError("Please enter a point to evaluate")
-                
-            x_eval = float(x_eval_text)
-            
-            # Check if the point is within the interpolation range
-            x_min, x_max = min(self.lagrange_x_points), max(self.lagrange_x_points)
-            if not (x_min <= x_eval <= x_max):
-                QMessageBox.warning(self.ui, "Warning", 
-                                  f"Point {x_eval} is outside the interpolation range [{x_min:.2f}, {x_max:.2f}]")
-            
-            # Calculate the interpolation
-            result = lf.lagrange_interpolation(self.lagrange_x_points, self.lagrange_y_points, x_eval)
-            
-            # Display the result
-            self.ui.IL_TEXTFIELD_OUTPUT.setText(f"{result:.6f}")
-            self.statusbar.showMessage(f"Interpolation calculated at x = {x_eval}", 3000)
-            
-        except ValueError as e:
-            QMessageBox.warning(self.ui, "Error", str(e))
-            self.statusbar.showMessage("Failed to calculate interpolation. Please check your input.", 3000)
+        if self.animation is None:
+            self.animation = FuncAnimation(
+                self.lagrange_figure,
+                self.update_animation,
+                frames=self.max_points,
+                interval=self.animation_interval,
+                blit=True
+            )
+            self.statusbar.showMessage("Animation started", 2000)
+        else:
+            self.animation.event_source.start()
+            self.statusbar.showMessage("Animation resumed", 2000)
 
-    def calculate_lagrange_derivative(self):
-        """Calculate the derivative of the Lagrange interpolation"""
-        try:
-            if not self.lagrange_x_points:
-                raise ValueError("No points available for interpolation. Please add points first.")
-            
-            # Get the point to evaluate from the output field
-            x_eval_text = self.ui.IL_TEXTFIELD_OUTPUT.text().strip()
-            if not x_eval_text:
-                raise ValueError("Please enter a point to evaluate")
-                
-            x_eval = float(x_eval_text)
-            
-            # Check if the point is within the interpolation range
-            x_min, x_max = min(self.lagrange_x_points), max(self.lagrange_x_points)
-            if not (x_min <= x_eval <= x_max):
-                QMessageBox.warning(self.ui, "Warning", 
-                                  f"Point {x_eval} is outside the interpolation range [{x_min:.2f}, {x_max:.2f}]")
-            
-            # Calculate the derivative
-            result = lf.lagrange_derivative(self.lagrange_x_points, self.lagrange_y_points, x_eval)
-            
-            # Display the result
-            self.ui.IL_TEXTFIELD_OUTPUT.setText(f"{result:.6f}")
-            self.statusbar.showMessage(f"Derivative calculated at x = {x_eval}", 3000)
-            
-        except ValueError as e:
-            QMessageBox.warning(self.ui, "Error", str(e))
-            self.statusbar.showMessage("Failed to calculate derivative. Please check your input.", 3000)
+    def stop_animation(self):
+        """Stop the animation"""
+        if self.animation is not None:
+            self.animation.event_source.stop()
+            self.statusbar.showMessage("Animation stopped", 2000)
 
-    def calculate_lagrange_error(self):
-        """Calculate the error of the Lagrange interpolation"""
-        try:
-            if not self.lagrange_x_points:
-                raise ValueError("No points available for interpolation. Please add points first.")
-            
-            # Calculate the error using the target function
-            error = lf.calculate_error(self.lagrange_x_points, self.lagrange_y_points)
-            
-            # Display the error
-            self.ui.IL_TEXTFIELD_ERROR.setText(f"{error:.6f}")
-            self.statusbar.showMessage("Error calculated successfully", 3000)
-            
-        except ValueError as e:
-            QMessageBox.warning(self.ui, "Error", str(e))
-            self.statusbar.showMessage("Failed to calculate error. Please check your input.", 3000)
+    def reset_animation(self):
+        """Reset the animation"""
+        if self.animation is not None:
+            self.animation.event_source.stop()
+            self.animation = None
+            self.current_points = 0
+            self.plot_lagrange()  # Show the full plot
+            self.statusbar.showMessage("Animation reset", 2000)
 
     def plot_lagrange(self):
         """Plot the Lagrange interpolation"""

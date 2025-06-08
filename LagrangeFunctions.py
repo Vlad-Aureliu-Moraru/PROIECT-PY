@@ -68,29 +68,30 @@ def lagrange_derivative(x_points: List[float], y_points: List[float], x_eval: fl
     
     return result
 
-def calculate_error(x_points: List[float], y_points: List[float]) -> float:
+def calculate_interpolation_error(x_points: List[float], y_points: List[float], num_eval_points: int = 1000) -> float:
     """
     Calculate the maximum error between the Lagrange interpolation and the target function.
     
     Args:
         x_points: List of x-coordinates of the interpolation points
         y_points: List of y-coordinates of the interpolation points
+        num_eval_points: Number of points to use for error evaluation
         
     Returns:
-        float: The maximum error
+        float: The maximum absolute error between interpolation and target function
     """
     if len(x_points) != len(y_points):
         raise ValueError("x_points and y_points must have the same length")
     
     # Create a dense set of points for error evaluation
     x_min, x_max = min(x_points), max(x_points)
-    x_eval = np.linspace(x_min, x_max, 1000)
+    x_eval = np.linspace(x_min, x_max, num_eval_points)
     
     max_error = 0.0
     for x in x_eval:
         interpolated = lagrange_interpolation(x_points, y_points, x)
-        original = target_function(x)
-        error = abs(interpolated - original)
+        actual = target_function(x)
+        error = abs(interpolated - actual)
         max_error = max(max_error, error)
     
     return max_error
