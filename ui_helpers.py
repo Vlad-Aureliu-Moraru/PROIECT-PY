@@ -8,26 +8,21 @@ class UIHelpers:
         self.SLIDER_SCALE_FACTOR = slider_scale_factor
 
     def setup_float_slider(self, slider_widget, min_val, max_val):
-        """Configures a QSlider to represent float values using a scaling factor."""
         slider_widget.setMinimum(int(min_val * self.SLIDER_SCALE_FACTOR))
         slider_widget.setMaximum(int(max_val * self.SLIDER_SCALE_FACTOR))
         slider_widget.setSingleStep(1)
         slider_widget.setPageStep(self.SLIDER_SCALE_FACTOR)
 
     def get_slider_float_value(self, slider_widget):
-        """Converts the QSlider's integer value to its float representation."""
         return float(slider_widget.value()) / self.SLIDER_SCALE_FACTOR
 
     def set_slider_float_value(self, slider_widget, float_value):
-        """Sets the QSlider's integer value based on a float representation."""
         clamped_value = max(slider_widget.minimum() / self.SLIDER_SCALE_FACTOR,
                             min(slider_widget.maximum() / self.SLIDER_SCALE_FACTOR, float_value))
         slider_widget.setValue(int(clamped_value * self.SLIDER_SCALE_FACTOR))
 
     def parse_interval_string(self, interval_str, parent_window):
-        """Parses an interval string [a,b] and returns (a, b) floats or None on error."""
-        # Corrected regex to handle floats and optional spaces, exactly as discussed.
-        intervalRegEx = r"^\[\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\]$"
+        intervalRegEx = r"^\[(\d+),(\d+)\]$"
         match = re.fullmatch(intervalRegEx, interval_str)
 
         if not match:
