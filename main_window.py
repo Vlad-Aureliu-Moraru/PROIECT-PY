@@ -1,6 +1,8 @@
 # main_window.py
 
 import sys
+import re
+import math
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 
@@ -340,7 +342,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def set_interval(self):
         # Stop any animation
-        #self.plot_handler.stop_animation()
+        self.plot_handler.stop_animation()
 
         interval_str = self.ui.AB_INPUT_INTERVAL.text()
         parsed_interval_1, parsed_interval_2 = self.ui_helpers.parse_interval_string(interval_str, self)
