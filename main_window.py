@@ -23,6 +23,7 @@ import LagrangeFunctions as lf
 # Import the new modules
 from plot_handler import PlotHandler
 from ui_helpers import UIHelpers
+from LagrangeWindowImp import LagrangeWindowImp
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -42,6 +43,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Initialize helper modules
         self.plot_handler = PlotHandler(self.ui.AB_WIG_GRAF, self.interval_1, self.interval_2)
         self.ui_helpers = UIHelpers(slider_scale_factor=100) # Use your original scale factor of 100
+        self.lagrange_window = LagrangeWindowImp(self.ui, self.ui.statusbar, self)
 
         # --- UI Element Setup ---
         self.ui.AB_SLIDER.setMinimum(1)
@@ -98,6 +100,9 @@ class MainWindow(QtWidgets.QMainWindow):
         
         # Show initial status message
         self.ui.statusbar.showMessage("Ready for Lagrange interpolation. Please add points first.", 3000)
+
+        # Perform initial plot
+        self.plot_handler.plot_approximation(self.ui.AB_SLIDER.value())
 
     def setup_lagrange_graph(self):
         """Set up the graph for Lagrange interpolation"""
