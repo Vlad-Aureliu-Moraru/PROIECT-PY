@@ -8,6 +8,7 @@ from ui_proiect import Ui_MainFrame
 import BersteinFunctions as bnf # Your existing math functions
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
@@ -25,17 +26,25 @@ import LagrangeFunctions as lf
 from plot_handler import PlotHandler
 from ui_helpers import UIHelpers
 >>>>>>> 7003df2 (working animation)
+=======
+# Import the new modules
+from plot_handler import PlotHandler
+from ui_helpers import UIHelpers
+>>>>>>> fixing_anim
 
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.interval_1 = 0.0
         self.interval_2 = 1.0
         self.SLIDER_SCALE_FACTOR = 100
 =======
 >>>>>>> 7003df2 (working animation)
+=======
+>>>>>>> fixing_anim
         self.ui = Ui_MainFrame()
         self.ui.setupUi(self)
 
@@ -70,6 +79,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.update_grad_label(self.ui.AB_SLIDER.value())
         self.update_punct_label(self.ui.AB_SLIDER_PUNCT.value())
         self.ui.OUTPUT_textfield.setReadOnly(True)
+<<<<<<< HEAD
 <<<<<<< HEAD
         self.ui.statusbar.showMessage("Ready to calculate Bernstein approximation.", 3000) 
 
@@ -313,6 +323,8 @@ class MainWindow(QtWidgets.QMainWindow):
             QMessageBox.warning(self, "Error", str(e))
             self.ui.statusbar.showMessage("Failed to update plot. Please check your input.", 3000)
 =======
+=======
+>>>>>>> fixing_anim
         self.ui.statusbar.showMessage("Ready to calculate Bernstein approximation.", 3000)
 
         # Perform initial plot
@@ -398,4 +410,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.plot_handler.stop_animation()
         # self.plot_handler.plot_approximation(self.ui.AB_SLIDER.value()) # Re-plot static graph
         pass
+<<<<<<< HEAD
 >>>>>>> 7003df2 (working animation)
+=======
+>>>>>>> fixing_anim
