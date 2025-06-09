@@ -1,33 +1,30 @@
-# PROIECT INTERPOLARE ȘI APROXIMARE FUNCȚII
+PROIECT INTERPOLARE ȘI APROXIMARE FUNCȚII
+Bine ați venit la proiectul nostru dedicat metodelor numerice de interpolare și aproximare a funcțiilor!
+Păstrăm un stil de codare cu accente vizuale, folosind simboluri ASCII simple, ca mai jos:
 
-Bun venit la proiectul nostru dedicat metodelor numerice de interpolare și aproximare a funcțiilor!
+Obiective
 
-Păstrăm un "vibe" de codare folosind simboluri ASCII, ca în liniile următoare: └ , ─, ├ ...
+Interfață Utilizator (UI)
+Implementare Aproximare Bernstein
+Implementare Interpolare Spline
+Implementare Interpolare Lagrange
 
----
 
-### [tasks]
+Colaboratori și Responsabilități
+Moraru Vlad
 
-* UI (Interfață Utilizator)
-* Implementări Aproximare Bernstein
-* Implementare Interpolare Spline
-* Implementare Interpolare Lagrange
+Componente UI pentru Aproximarea Bernstein
+Funcții pentru Aproximarea Bernstein (BernsteinFunctions.py)
+Implementarea și integrarea funcțiilor în interfața Qt (BernsteinWindowImp.py)
 
----
+Crasnojon Vlad
 
-### ├─ Colaboratori și Responsabilități
+Dezvoltarea majorității interfeței UI
+Funcții pentru Interpolarea Lagrange (LagrangeFunctions.py)
+Implementarea și integrarea funcțiilor în interfața Qt (LagrangeWindowImp.py)
 
-└─**Moraru Vlad**
-    ├─ Partea de UI aferentă Aproximării Bernstein
-    ├─ Funcțiile pentru Aproximarea Bernstein [fișier: `BersteinFunctions.py`]
-    └─ Implementarea acestor funcții și conectarea lor în interfața Qt [fișier: `BernsteinWindowImp.py`]
+Balan Cătălin
 
-└─**Crasnojon Vlad**
-    ├─ Majoritatea UI-ului
-    ├─ Funcțiile pentru Interpolarea Lagrange [fișier: `LagrangeFunctions.py`]
-    └─ Implementarea acestor funcții și conectarea lor în interfața Qt [fișier: `LagrangeWindowImp.py`]
-
-└─**Balan Cătălin**
-    ├─ Secțiunea "Ajutor" (Help) din UI
-    ├─ Funcțiile pentru Interpolarea Spline [fișier: `SplineFunctions.py`]
-    └─ Implementarea acestor funcții și conectarea lor în interfața Qt [fișier: `SplineWindowImp.py`]
+Secțiunea „Ajutor” din UI
+Funcții pentru Interpolarea Spline (SplineFunctions.py)
+Implementarea și integrarea funcțiilor în interfața Qt (SplineWindowImp.py)
