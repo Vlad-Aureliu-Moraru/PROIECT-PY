@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainFrame</class>
+ <widget class="QMainWindow" name="MainFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1332</width>
+    <height>684</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Polinoame de aproximare si de interpolare.</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1300</width>
+      <height>700</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>3</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Aproximare Bernstein</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>471</width>
+        <height>415</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="AB_INPUT_LAYOUT">
+       <item>
+        <widget class="QLabel" name="AB_LABEL_INTERVAL">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>24</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Interval [a,b]</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="AB_INPUT_INTERVAL">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="AB_BUTTON_INTERVAL">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Set Interval</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="AB_LABEL_PUNCT">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Punct</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="AB_SLIDER_PUNCT">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="AB_LABEL_GRAD">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Grad:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="AB_SLIDER">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="AB_BUTTON_CALCULEAZA">
+         <property name="font">
+          <font>
+           <family>Fira Sans</family>
+           <pointsize>15</pointsize>
+           <italic>true</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Calculează</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>440</y>
+        <width>471</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="button_layout_play">
+         <item>
+          <widget class="QPushButton" name="AB_BUTTON_PLAY">
+           <property name="font">
+            <font>
+             <pointsize>15</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>▶</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="AB_LABEL_OUTPUT">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Output F(X)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="OUTPUT_textfield">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Output Error</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="OUTPUTERROR_textfield_">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>10</y>
+        <width>691</width>
+        <height>611</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QWidget" name="AB_WIG_GRAF" native="true"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Interpolare Lagrange</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>160</y>
+        <width>871</width>
+        <height>451</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QWidget" name="IL_WIG_GRAF" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>591</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="IL_LABEL_INTERVAL">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Interval [a,b]</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="IL_TEXTFIELD_INTERVAL"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="IL_LABEL_NODURI">
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>NrNoduri</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="IL_TEXTFIELD_NODURI"/>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="IL_TABEL">
+         <row>
+          <property name="text">
+           <string>Variabile</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>X</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Y</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="IL_BUTTON_ADAUGA">
+         <property name="font">
+          <font>
+           <family>Fira Sans</family>
+           <pointsize>16</pointsize>
+           <italic>true</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Calculează</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="IL_BUTTON_PLAY">
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>▶</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>10</y>
+        <width>871</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_13">
+       <item>
+        <widget class="QLabel" name="IL_LABEL_OUTPUT">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>15</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Output F(X)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="IL_TEXTFIELD_OUTPUT"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="IL_LABEL_OUTPUT_ERROR">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>15</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Output Error</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="IL_TEXTFIELD_ERROR"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Interpolare Spline</string>
+     </attribute>
+     <widget class="QWidget" name="verticalLayoutWidget_11">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>470</y>
+        <width>861</width>
+        <height>149</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QLabel" name="IS_LABEL_OUTPUT">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Output F(X)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="IS_TEXTFIELD_OUTPUT"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="IS_LABEL_OUTERROR">
+         <property name="font">
+          <font>
+           <family>Fira Mono</family>
+           <pointsize>16</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Output Error</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="IS_TEXTFIELD_ERROR"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="gridLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>10</y>
+        <width>861</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QWidget" name="IS_WIG_GRAF" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>291</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="IS_LABEL_INTERVAL_">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Interval [a,b]</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="IS_TEXTFIELD_INTERVAL"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="IS_LABEL_NODURI">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>NrNoduri</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="IS_TEXTFIELD_NODURI"/>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QTableWidget" name="IL_TABEL_2">
+         <row>
+          <property name="text">
+           <string>Variabile</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>X</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Y</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <layout class="QVBoxLayout" name="verticalLayout_12">
+         <item>
+          <widget class="QLabel" name="IS_LABEL_TIP">
+           <property name="font">
+            <font>
+             <family>Fira Mono</family>
+             <pointsize>15</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Spline Tip</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="IS_RADIO_LINIAR">
+           <property name="font">
+            <font>
+             <family>Fira Sans</family>
+             <pointsize>14</pointsize>
+             <italic>true</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Liniar</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="IS_RADIO_PATRATIC">
+           <property name="font">
+            <font>
+             <family>Fira Sans</family>
+             <pointsize>14</pointsize>
+             <italic>true</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Pătratic</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="IS_RADIO_CUBIC">
+           <property name="font">
+            <font>
+             <family>Fira Sans</family>
+             <pointsize>14</pointsize>
+             <italic>true</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Cubic</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="IS_BUTTON_CALCULEAZA">
+           <property name="text">
+            <string>Calculează</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Help</string>
+     </attribute>
+     <widget class="QWidget" name="gridLayoutWidget_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>1191</width>
+        <height>611</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="tabWidget_2">
+         <property name="currentIndex">
+          <number>3</number>
+         </property>
+         <widget class="QWidget" name="tab_4">
+          <attribute name="title">
+           <string>Aproximare Bernstein</string>
+          </attribute>
+          <widget class="QTextEdit" name="textEdit">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1181</width>
+             <height>571</height>
+            </rect>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Noțiuni Teoretice &lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;br /&gt;Polinoamele Bernstein sunt utilizate pentru a aproxima o funcție continuă pe un interval închis [a, b]. Spre deosebire de interpolare, curba rezultată nu trece neapărat prin punctele de control, dar oferă o aproximare netedă și convergentă. Pe măsură ce gradul (n) al polinomului crește, curba de aproximare se apropie din ce în ce mai mult de forma funcției originale. &lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Ghid de Utilizare&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Introduceți Intervalul:&lt;/span&gt; În câmpul &lt;span style=&quot; font-family:'monospace';&quot;&gt;Interval [a,b]&lt;/span&gt;, tastați capetele intervalului de studiu (de exemplu, &lt;span style=&quot; font-family:'monospace';&quot;&gt;0, 10&lt;/span&gt;) și apăsați butonul &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Set Interval&amp;quot;&lt;/span&gt;.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Introduceți Punctul:&lt;/span&gt; În câmpul &lt;span style=&quot; font-family:'monospace';&quot;&gt;Punct&lt;/span&gt;, introduceți valoarea &lt;span style=&quot; font-family:'monospace';&quot;&gt;x&lt;/span&gt; pentru care doriți să calculați valoarea aproximată a funcției.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Setați Gradul:&lt;/span&gt; În câmpul &lt;span style=&quot; font-family:'monospace';&quot;&gt;Grad&lt;/span&gt;, introduceți gradul &lt;span style=&quot; font-family:'monospace';&quot;&gt;n&lt;/span&gt; al polinomului Bernstein pe care doriți să-l utilizați. Un grad mai mare va duce la o aproximare mai precisă, dar necesită mai mult calcul.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Calculați:&lt;/span&gt; Apăsați butonul &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Calculează&amp;quot;&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vizualizați Rezultatele:&lt;/span&gt; 
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Output F(X)&lt;/span&gt;: Va afișa valoarea polinomului Bernstein în punctul &lt;span style=&quot; font-family:'monospace';&quot;&gt;x&lt;/span&gt; specificat.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Output Error&lt;/span&gt;: Va afișa eroarea de aproximare, calculată ca diferența dintre valoarea reală a funcției (dacă este cunoscută) și valoarea aproximată.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Graficul din dreapta va afișa funcția originală și polinomul de aproximare.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_7">
+          <attribute name="title">
+           <string>Interpolare Lagrange</string>
+          </attribute>
+          <widget class="QTextBrowser" name="textBrowser">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1191</width>
+             <height>571</height>
+            </rect>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;title&gt;Ghid: Interpolare Lagrange&lt;/title&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Interpolare Lagrange&lt;/span&gt;&lt;/h2&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;Interpolarea Lagrange este o metodă de a găsi un &lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;polinom unic&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt; de grad minim care trece &lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;exact&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt; printr-un set dat de puncte (noduri). Dacă avem &lt;/span&gt;&lt;span style=&quot; font-family:'monospace'; font-size:14pt;&quot;&gt;n+1&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt; puncte distincte, polinomul Lagrange rezultat va avea un grad de cel mult &lt;/span&gt;&lt;span style=&quot; font-family:'monospace'; font-size:14pt;&quot;&gt;n&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;. Această metodă este utilă pentru a modela o funcție atunci când cunoaștem valoarea ei doar în câteva puncte discrete.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Ghid de Utilizare&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Introduceți Intervalul:&lt;/span&gt; În câmpul &lt;span style=&quot; font-family:'monospace';&quot;&gt;Interval [a,b]&lt;/span&gt;, tastați capetele intervalului pe care va fi afișat graficul (de exemplu, &lt;span style=&quot; font-family:'monospace';&quot;&gt;-5, 5&lt;/span&gt;).&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Setați Numărul de Noduri:&lt;/span&gt; În câmpul &lt;span style=&quot; font-family:'monospace';&quot;&gt;NrNoduri&lt;/span&gt;, introduceți numărul de puncte de interpolare pe care le veți folosi.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Introduceți Nodurile:&lt;/span&gt; În tabelul &lt;span style=&quot; font-family:'monospace';&quot;&gt;Variabile&lt;/span&gt;, completați coordonatele &lt;span style=&quot; font-family:'monospace';&quot;&gt;X&lt;/span&gt; și &lt;span style=&quot; font-family:'monospace';&quot;&gt;Y&lt;/span&gt; pentru fiecare nod. Numărul de rânduri disponibile va fi determinat de valoarea din &lt;span style=&quot; font-family:'monospace';&quot;&gt;NrNoduri&lt;/span&gt;.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Calculați:&lt;/span&gt; Apăsați butonul &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Calculează&amp;quot;&lt;/span&gt;.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vizualizați Rezultatele:&lt;/span&gt; 
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Output F(X)&lt;/span&gt;: Va afișa expresia matematică a polinomului Lagrange rezultat.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Output Error&lt;/span&gt;: Poate afișa informații despre eroarea de interpolare, dacă se compară cu o funcție cunoscută.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Graficul din dreapta va afișa punctele (nodurile) introduse și polinomul de interpolare care trece prin ele.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_6">
+          <attribute name="title">
+           <string>Interpolare Spline</string>
+          </attribute>
+          <widget class="QTextBrowser" name="textBrowser_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1181</width>
+             <height>571</height>
+            </rect>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;h2 style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Interpolare Spline&lt;/span&gt;&lt;/h2&gt;
+&lt;h3 style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Noțiuni Teoretice&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;Interpolarea Spline este o tehnică avansată de interpolare care utilizează polinoame de grad mic pe sub-intervale (între noduri consecutive) și le unește astfel încât joncțiunea să fie netedă. Acest lucru evită oscilațiile mari care pot apărea la polinoamele Lagrange de grad înalt (fenomenul Runge).&lt;/span&gt;&lt;/p&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Liniar:&lt;/span&gt; Conectează nodurile prin segmente de dreaptă. Curba rezultată este continuă, dar nu netedă (are &amp;quot;colțuri&amp;quot;).&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Pătratic / Cubic:&lt;/span&gt; Folosește polinoame de gradul 2 sau 3 pe fiecare sub-interval. Spline-urile cubice sunt cele mai populare, deoarece asigură continuitatea curbei, a pantei (prima derivată) și a curburii (a doua derivată) în fiecare nod, rezultând o curbă foarte netedă.&lt;br /&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Ghid de Utilizare&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Introduceți Intervalul:&lt;/span&gt; Stabiliți intervalul de afișare a graficului.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Setați Numărul de Noduri:&lt;/span&gt; Introduceți numărul total de puncte (noduri) prin care va trece curba spline.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Introduceți Nodurile:&lt;/span&gt; Completați tabelul &lt;span style=&quot; font-family:'monospace';&quot;&gt;Variabile&lt;/span&gt; cu coordonatele &lt;span style=&quot; font-family:'monospace';&quot;&gt;X&lt;/span&gt; și &lt;span style=&quot; font-family:'monospace';&quot;&gt;Y&lt;/span&gt; ale fiecărui nod.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Alegeți Tipul de Spline:&lt;/span&gt; Selectați una dintre opțiunile: 
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Liniar&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Pătratic&lt;/span&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Cubic&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Calculați:&lt;/span&gt; Apăsați butonul &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Calculează&amp;quot;&lt;/span&gt;.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Vizualizați Rezultatele:&lt;/span&gt; 
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Output F(X)&lt;/span&gt;: Va afișa setul de ecuații polinomiale care definesc curba spline pe fiecare sub-interval.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace';&quot;&gt;Output Error&lt;/span&gt;: Poate oferi informații despre eroare, dacă este cazul.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Graficul din dreapta va afișa curba spline netedă care trece prin toate nodurile specificate.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_8">
+          <attribute name="title">
+           <string>Despre</string>
+          </attribute>
+          <widget class="QTextEdit" name="textEdit_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1191</width>
+             <height>581</height>
+            </rect>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;h3 style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Tema Proiectului&lt;/span&gt;&lt;/h3&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;Tema proiectului este &lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600; font-style:italic;&quot;&gt;Polinoame de aproximare si de interpolare&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;Proiectul își propune să ofere un instrument educațional interactiv pentru înțelegerea, compararea și vizualizarea a trei metode fundamentale din analiza numerică:&lt;/span&gt;&lt;/p&gt;
+&lt;ol style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Aproximarea Bernstein:&lt;/span&gt; Explorarea modului în care o funcție continuă poate fi aproximată uniform printr-o serie de polinoame.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interpolarea Lagrange:&lt;/span&gt; Demonstrarea construcției unui polinom unic de grad înalt care trece exact printr-un set de puncte predefinite.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interpolarea Spline:&lt;/span&gt; Ilustrarea unei metode mai flexibile de interpolare, care utilizează polinoame de grad redus pe sub-intervale pentru a crea o curbă netedă, evitând problemele polinoamelor de grad înalt.&lt;/li&gt;&lt;/ol&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;Aplicația servește ca un laborator virtual unde utilizatorii pot experimenta cu diferiți parametri (grad, noduri, tipuri de spline) și pot observa instantaneu efectele acestora atât numeric, cât și grafic.&lt;/span&gt;&lt;/p&gt;
+&lt;h3 style=&quot; margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt; font-weight:600;&quot;&gt;Cerințe:&lt;/span&gt;&lt;/h3&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interfață Grafică (GUI):&lt;/span&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Aplicația trebuie să aibă o interfață grafică intuitivă, organizată pe tab-uri (file) pentru fiecare metodă implementată.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Trebuie să existe o zonă dedicată pentru introducerea datelor de intrare și o zonă separată pentru vizualizarea grafică a rezultatelor.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Modulul &amp;quot;Aproximare Bernstein&amp;quot;:&lt;/span&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să permită utilizatorului să definească un interval &lt;span style=&quot; font-family:'monospace';&quot;&gt;[a, b]&lt;/span&gt;.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să permită introducerea gradului &lt;span style=&quot; font-family:'monospace';&quot;&gt;n&lt;/span&gt; al polinomului.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să permită calculul valorii aproximate într-un punct &lt;span style=&quot; font-family:'monospace';&quot;&gt;x&lt;/span&gt; specificat.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să afișeze numeric valoarea calculată și eroarea de aproximare.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să reprezinte grafic funcția originală și polinomul de aproximare.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Modulul &amp;quot;Interpolare Lagrange&amp;quot;:&lt;/span&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să permită utilizatorului să specifice numărul de noduri de interpolare.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să ofere posibilitatea de a introduce coordonatele &lt;span style=&quot; font-family:'monospace';&quot;&gt;(x, y)&lt;/span&gt; pentru fiecare nod într-un tabel.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să calculeze și să afișeze forma analitică a polinomului Lagrange rezultat.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să traseze grafic nodurile și curba polinomului care trece prin ele.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Modulul &amp;quot;Interpolare Spline&amp;quot;:&lt;/span&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să permită introducerea unui set de noduri de interpolare &lt;span style=&quot; font-family:'monospace';&quot;&gt;(x, y)&lt;/span&gt;.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să ofere utilizatorului opțiunea de a alege tipul de interpolare spline (Liniar, Pătratic, Cubic).&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să calculeze și să afișeze ecuațiile polinoamelor de pe fiecare sub-interval.&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să reprezinte grafic curba spline netedă care unește nodurile.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Modulul &amp;quot;Help&amp;quot;:&lt;/span&gt;
+&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;&quot;&gt;
+&lt;li style=&quot; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Să includă o secțiune de ajutor care să explice noțiunile teoretice, formulele matematice și ghidul de utilizare pentru fiecare metodă.&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px; font-family:'Fira Sans Semi-Light'; font-size:14pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
