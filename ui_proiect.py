@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainFrame(object):
     def setupUi(self, MainFrame):
         MainFrame.setObjectName("MainFrame")
-        MainFrame.resize(1200, 684)
+        MainFrame.resize(1332, 684)
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(False)
@@ -27,7 +27,7 @@ class Ui_MainFrame(object):
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.tab)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 471, 301))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 471, 415))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.AB_INPUT_LAYOUT = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.AB_INPUT_LAYOUT.setContentsMargins(0, 0, 0, 0)
@@ -63,10 +63,6 @@ class Ui_MainFrame(object):
         self.AB_LABEL_PUNCT.setObjectName("AB_LABEL_PUNCT")
         self.AB_INPUT_LAYOUT.addWidget(self.AB_LABEL_PUNCT)
         self.AB_SLIDER_PUNCT = QtWidgets.QSlider(self.verticalLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        font.setBold(False)
-        self.AB_SLIDER_PUNCT.setFont(font)
         self.AB_SLIDER_PUNCT.setOrientation(QtCore.Qt.Horizontal)
         self.AB_SLIDER_PUNCT.setObjectName("AB_SLIDER_PUNCT")
         self.AB_INPUT_LAYOUT.addWidget(self.AB_SLIDER_PUNCT)
@@ -91,7 +87,7 @@ class Ui_MainFrame(object):
         self.AB_BUTTON_CALCULEAZA.setObjectName("AB_BUTTON_CALCULEAZA")
         self.AB_INPUT_LAYOUT.addWidget(self.AB_BUTTON_CALCULEAZA)
         self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.tab)
-        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(10, 350, 471, 231))
+        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(10, 440, 471, 141))
         self.verticalLayoutWidget_4.setObjectName("verticalLayoutWidget_4")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_4)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -369,13 +365,28 @@ class Ui_MainFrame(object):
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
+        self.textEdit = QtWidgets.QTextEdit(self.tab_4)
+        self.textEdit.setGeometry(QtCore.QRect(0, 0, 1181, 571))
+        self.textEdit.setObjectName("textEdit")
         self.tabWidget_2.addTab(self.tab_4, "")
         self.tab_7 = QtWidgets.QWidget()
         self.tab_7.setObjectName("tab_7")
+        self.textBrowser = QtWidgets.QTextBrowser(self.tab_7)
+        self.textBrowser.setGeometry(QtCore.QRect(0, 0, 1191, 571))
+        self.textBrowser.setObjectName("textBrowser")
         self.tabWidget_2.addTab(self.tab_7, "")
         self.tab_6 = QtWidgets.QWidget()
         self.tab_6.setObjectName("tab_6")
+        self.textBrowser_2 = QtWidgets.QTextBrowser(self.tab_6)
+        self.textBrowser_2.setGeometry(QtCore.QRect(0, 0, 1181, 571))
+        self.textBrowser_2.setObjectName("textBrowser_2")
         self.tabWidget_2.addTab(self.tab_6, "")
+        self.tab_8 = QtWidgets.QWidget()
+        self.tab_8.setObjectName("tab_8")
+        self.textEdit_2 = QtWidgets.QTextEdit(self.tab_8)
+        self.textEdit_2.setGeometry(QtCore.QRect(0, 0, 1191, 581))
+        self.textEdit_2.setObjectName("textEdit_2")
+        self.tabWidget_2.addTab(self.tab_8, "")
         self.gridLayout_5.addWidget(self.tabWidget_2, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab_5, "")
         MainFrame.setCentralWidget(self.centralwidget)
@@ -385,7 +396,7 @@ class Ui_MainFrame(object):
 
         self.retranslateUi(MainFrame)
         self.tabWidget.setCurrentIndex(3)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainFrame)
 
     def retranslateUi(self, MainFrame):
@@ -429,9 +440,120 @@ class Ui_MainFrame(object):
         self.IS_RADIO_CUBIC.setText(_translate("MainFrame", "Cubic"))
         self.IS_BUTTON_CALCULEAZA.setText(_translate("MainFrame", "Calculează"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainFrame", "Interpolare Spline"))
-        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainFrame", "Tab 1"))
-        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_7), _translate("MainFrame", "Page"))
-        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), _translate("MainFrame", "Tab 2"))
+        self.textEdit.setHtml(_translate("MainFrame", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Noțiuni Teoretice </span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\"><br /><br />Polinoamele Bernstein sunt utilizate pentru a aproxima o funcție continuă pe un interval închis [a, b]. Spre deosebire de interpolare, curba rezultată nu trece neapărat prin punctele de control, dar oferă o aproximare netedă și convergentă. Pe măsură ce gradul (n) al polinomului crește, curba de aproximare se apropie din ce în ce mai mult de forma funcției originale. <br /><br /></span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Ghid de Utilizare</span></p>\n"
+"<ol style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Introduceți Intervalul:</span> În câmpul <span style=\" font-family:\'monospace\';\">Interval [a,b]</span>, tastați capetele intervalului de studiu (de exemplu, <span style=\" font-family:\'monospace\';\">0, 10</span>) și apăsați butonul <span style=\" font-weight:600;\">&quot;Set Interval&quot;</span>.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Introduceți Punctul:</span> În câmpul <span style=\" font-family:\'monospace\';\">Punct</span>, introduceți valoarea <span style=\" font-family:\'monospace\';\">x</span> pentru care doriți să calculați valoarea aproximată a funcției.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Setați Gradul:</span> În câmpul <span style=\" font-family:\'monospace\';\">Grad</span>, introduceți gradul <span style=\" font-family:\'monospace\';\">n</span> al polinomului Bernstein pe care doriți să-l utilizați. Un grad mai mare va duce la o aproximare mai precisă, dar necesită mai mult calcul.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Calculați:</span> Apăsați butonul <span style=\" font-weight:600;\">&quot;Calculează&quot;</span></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Vizualizați Rezultatele:</span> \n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Output F(X)</span>: Va afișa valoarea polinomului Bernstein în punctul <span style=\" font-family:\'monospace\';\">x</span> specificat.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Output Error</span>: Va afișa eroarea de aproximare, calculată ca diferența dintre valoarea reală a funcției (dacă este cunoscută) și valoarea aproximată.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Graficul din dreapta va afișa funcția originală și polinomul de aproximare.</li></ul></li></ol></body></html>"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainFrame", "Aproximare Bernstein"))
+        self.textBrowser.setHtml(_translate("MainFrame", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><title>Ghid: Interpolare Lagrange</title><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<h2 style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Interpolare Lagrange</span></h2>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">Interpolarea Lagrange este o metodă de a găsi un </span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">polinom unic</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\"> de grad minim care trece </span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">exact</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\"> printr-un set dat de puncte (noduri). Dacă avem </span><span style=\" font-family:\'monospace\'; font-size:14pt;\">n+1</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\"> puncte distincte, polinomul Lagrange rezultat va avea un grad de cel mult </span><span style=\" font-family:\'monospace\'; font-size:14pt;\">n</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">. Această metodă este utilă pentru a modela o funcție atunci când cunoaștem valoarea ei doar în câteva puncte discrete.<br /><br /><br /></span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Ghid de Utilizare</span></p>\n"
+"<ol style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Introduceți Intervalul:</span> În câmpul <span style=\" font-family:\'monospace\';\">Interval [a,b]</span>, tastați capetele intervalului pe care va fi afișat graficul (de exemplu, <span style=\" font-family:\'monospace\';\">-5, 5</span>).</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Setați Numărul de Noduri:</span> În câmpul <span style=\" font-family:\'monospace\';\">NrNoduri</span>, introduceți numărul de puncte de interpolare pe care le veți folosi.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Introduceți Nodurile:</span> În tabelul <span style=\" font-family:\'monospace\';\">Variabile</span>, completați coordonatele <span style=\" font-family:\'monospace\';\">X</span> și <span style=\" font-family:\'monospace\';\">Y</span> pentru fiecare nod. Numărul de rânduri disponibile va fi determinat de valoarea din <span style=\" font-family:\'monospace\';\">NrNoduri</span>.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Calculați:</span> Apăsați butonul <span style=\" font-weight:600;\">&quot;Calculează&quot;</span>.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Vizualizați Rezultatele:</span> \n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Output F(X)</span>: Va afișa expresia matematică a polinomului Lagrange rezultat.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Output Error</span>: Poate afișa informații despre eroarea de interpolare, dacă se compară cu o funcție cunoscută.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Graficul din dreapta va afișa punctele (nodurile) introduse și polinomul de interpolare care trece prin ele.</li></ul></li></ol></body></html>"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_7), _translate("MainFrame", "Interpolare Lagrange"))
+        self.textBrowser_2.setHtml(_translate("MainFrame", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<h2 style=\" margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Interpolare Spline</span></h2>\n"
+"<h3 style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Noțiuni Teoretice</span></h3>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">Interpolarea Spline este o tehnică avansată de interpolare care utilizează polinoame de grad mic pe sub-intervale (între noduri consecutive) și le unește astfel încât joncțiunea să fie netedă. Acest lucru evită oscilațiile mari care pot apărea la polinoamele Lagrange de grad înalt (fenomenul Runge).</span></p>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Liniar:</span> Conectează nodurile prin segmente de dreaptă. Curba rezultată este continuă, dar nu netedă (are &quot;colțuri&quot;).</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Pătratic / Cubic:</span> Folosește polinoame de gradul 2 sau 3 pe fiecare sub-interval. Spline-urile cubice sunt cele mai populare, deoarece asigură continuitatea curbei, a pantei (prima derivată) și a curburii (a doua derivată) în fiecare nod, rezultând o curbă foarte netedă.<br /></li></ul>\n"
+"<p style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Ghid de Utilizare</span></p>\n"
+"<ol style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Introduceți Intervalul:</span> Stabiliți intervalul de afișare a graficului.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Setați Numărul de Noduri:</span> Introduceți numărul total de puncte (noduri) prin care va trece curba spline.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Introduceți Nodurile:</span> Completați tabelul <span style=\" font-family:\'monospace\';\">Variabile</span> cu coordonatele <span style=\" font-family:\'monospace\';\">X</span> și <span style=\" font-family:\'monospace\';\">Y</span> ale fiecărui nod.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Alegeți Tipul de Spline:</span> Selectați una dintre opțiunile: \n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Liniar</span></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Pătratic</span></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Cubic</span></li></ul></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Calculați:</span> Apăsați butonul <span style=\" font-weight:600;\">&quot;Calculează&quot;</span>.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Vizualizați Rezultatele:</span> \n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Output F(X)</span>: Va afișa setul de ecuații polinomiale care definesc curba spline pe fiecare sub-interval.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'monospace\';\">Output Error</span>: Poate oferi informații despre eroare, dacă este cazul.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Graficul din dreapta va afișa curba spline netedă care trece prin toate nodurile specificate.</li></ul></li></ol></body></html>"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_6), _translate("MainFrame", "Interpolare Spline"))
+        self.textEdit_2.setHtml(_translate("MainFrame", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:\'Sans Serif\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<h3 style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Tema Proiectului</span></h3>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">Tema proiectului este </span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">&quot;</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600; font-style:italic;\">Polinoame de aproximare si de interpolare</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">&quot;</span><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">.</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">Proiectul își propune să ofere un instrument educațional interactiv pentru înțelegerea, compararea și vizualizarea a trei metode fundamentale din analiza numerică:</span></p>\n"
+"<ol style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Aproximarea Bernstein:</span> Explorarea modului în care o funcție continuă poate fi aproximată uniform printr-o serie de polinoame.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Interpolarea Lagrange:</span> Demonstrarea construcției unui polinom unic de grad înalt care trece exact printr-un set de puncte predefinite.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Interpolarea Spline:</span> Ilustrarea unei metode mai flexibile de interpolare, care utilizează polinoame de grad redus pe sub-intervale pentru a crea o curbă netedă, evitând problemele polinoamelor de grad înalt.</li></ol>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\">Aplicația servește ca un laborator virtual unde utilizatorii pot experimenta cu diferiți parametri (grad, noduri, tipuri de spline) și pot observa instantaneu efectele acestora atât numeric, cât și grafic.</span></p>\n"
+"<h3 style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt; font-weight:600;\">Cerințe:</span></h3>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Interfață Grafică (GUI):</span>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Aplicația trebuie să aibă o interfață grafică intuitivă, organizată pe tab-uri (file) pentru fiecare metodă implementată.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Trebuie să existe o zonă dedicată pentru introducerea datelor de intrare și o zonă separată pentru vizualizarea grafică a rezultatelor.</li></ul></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Modulul &quot;Aproximare Bernstein&quot;:</span>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să permită utilizatorului să definească un interval <span style=\" font-family:\'monospace\';\">[a, b]</span>.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să permită introducerea gradului <span style=\" font-family:\'monospace\';\">n</span> al polinomului.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să permită calculul valorii aproximate într-un punct <span style=\" font-family:\'monospace\';\">x</span> specificat.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să afișeze numeric valoarea calculată și eroarea de aproximare.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să reprezinte grafic funcția originală și polinomul de aproximare.</li></ul></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Modulul &quot;Interpolare Lagrange&quot;:</span>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să permită utilizatorului să specifice numărul de noduri de interpolare.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să ofere posibilitatea de a introduce coordonatele <span style=\" font-family:\'monospace\';\">(x, y)</span> pentru fiecare nod într-un tabel.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să calculeze și să afișeze forma analitică a polinomului Lagrange rezultat.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să traseze grafic nodurile și curba polinomului care trece prin ele.</li></ul></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Modulul &quot;Interpolare Spline&quot;:</span>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să permită introducerea unui set de noduri de interpolare <span style=\" font-family:\'monospace\';\">(x, y)</span>.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să ofere utilizatorului opțiunea de a alege tipul de interpolare spline (Liniar, Pătratic, Cubic).</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să calculeze și să afișeze ecuațiile polinoamelor de pe fiecare sub-interval.</li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să reprezinte grafic curba spline netedă care unește nodurile.</li></ul></li>\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Modulul &quot;Help&quot;:</span>\n"
+"<ul style=\"margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;\">\n"
+"<li style=\" font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Să includă o secțiune de ajutor care să explice noțiunile teoretice, formulele matematice și ghidul de utilizare pentru fiecare metodă.</li></ul></li></ul>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:1; text-indent:0px; font-family:\'Fira Sans Semi-Light\'; font-size:14pt;\"><br /></p></body></html>"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_8), _translate("MainFrame", "Despre"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), _translate("MainFrame", "Help"))
 
 
