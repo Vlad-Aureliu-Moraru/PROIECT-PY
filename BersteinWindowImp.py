@@ -27,7 +27,6 @@ class BersteinWindowImp:
         self.ui.AB_SLIDER_PUNCT.valueChanged.connect(self.update_punct_label)
         self.ui.AB_BUTTON_INTERVAL.clicked.connect(self.set_interval)
         self.ui.AB_BUTTON_PLAY.clicked.connect(self.start_animation)
-        self.ui.AB_BUTTON_PREV.clicked.connect(self.stop_animation)
         
         self.update_grad_label(self.ui.AB_SLIDER.value())
         self.update_punct_label(self.ui.AB_SLIDER_PUNCT.value())

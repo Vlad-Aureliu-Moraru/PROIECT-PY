@@ -17,10 +17,9 @@ from ui_helpers import UIHelpers
 
 from LagrangeWindowImp import LagrangeWindowImp
 from BersteinWindowImp import BersteinWindowImp
+from SplineWindowImp import SplineWindowImp
 from ui_proiect import Ui_MainFrame
 
-import BersteinFunctions as bnf
-import LagrangeFunctions as lf
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -30,6 +29,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.ui_helpers = UIHelpers(slider_scale_factor=100)
         self.lagrange_window = LagrangeWindowImp(self.ui, self.ui.statusbar, self)
+        self.spline_window = SplineWindowImp(self.ui,self.ui.statusbar,self)
         
         self.bernstein_window = BersteinWindowImp(self.ui, self.ui.statusbar, self)
         self.ui.IL_TABEL.setColumnCount(2)

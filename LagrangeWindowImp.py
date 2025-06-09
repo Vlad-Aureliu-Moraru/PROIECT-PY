@@ -32,8 +32,6 @@ class LagrangeWindowImp:
         self.setup_lagrange_graph()
         self.ui.IL_BUTTON_ADAUGA.clicked.connect(self.add_lagrange_point)
         self.ui.IL_BUTTON_PLAY.clicked.connect(self.start_animation)
-        self.ui.IL_BUTTON_PREV.clicked.connect(self.stop_animation)
-        self.ui.IL_BUTTON_NEXT.clicked.connect(self.reset_animation)
 
     def setup_lagrange_graph(self):
         self.lagrange_figure = Figure(figsize=(5, 4), dpi=100)
@@ -151,17 +149,6 @@ class LagrangeWindowImp:
             )
         else:
             self.animation.event_source.start()
-
-    def stop_animation(self):
-        if self.animation is not None:
-            self.animation.event_source.stop()
-
-    def reset_animation(self):
-        if self.animation is not None:
-            self.animation.event_source.stop()
-            self.animation = None
-            self.current_points = 0
-            self.plot_lagrange()  
 
     def plot_lagrange(self):
         try:
