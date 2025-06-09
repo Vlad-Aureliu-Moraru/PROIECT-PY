@@ -13,7 +13,7 @@ from matplotlib.animation import FuncAnimation
 import numpy as np 
 
 from plot_handler import PlotHandler
-from ui_helpers import UIHelpers
+#from ui_helpers import UIHelpers
 
 from LagrangeWindowImp import LagrangeWindowImp
 from BersteinWindowImp import BersteinWindowImp
@@ -27,7 +27,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = Ui_MainFrame()
         self.ui.setupUi(self)
         
-        self.ui_helpers = UIHelpers(slider_scale_factor=100)
+       # self.ui_helpers = UIHelpers(slider_scale_factor=100)
         self.lagrange_window = LagrangeWindowImp(self.ui, self.ui.statusbar, self)
         self.spline_window = SplineWindowImp(self.ui,self.ui.statusbar,self)
         
