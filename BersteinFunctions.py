@@ -36,3 +36,7 @@ def aprox_berstein_on_interval(original_func, y_eval, n_degree, a, b):
         term = transformed_func_for_bernstein(k / n_degree) * binomial_coeff * bernstein_basis
         bernstein_sum += term
     return bernstein_sum
+
+def calculeaza_eroarea_abs(bernstein_sum,original_func_value):
+    return abs(original_func_value-bernstein_sum)
+    

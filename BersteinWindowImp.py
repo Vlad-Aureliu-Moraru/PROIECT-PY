@@ -84,11 +84,13 @@ class BersteinWindowImp:
             )
             actual_value = bnf.target_function(punct)
             self.ui.OUTPUT_textfield.setText(f"Aproximare: {approximated_value:.6f} | Valoare implementata in Py: {actual_value:.6f}")
+            self.ui.OUTPUTERROR_textfield_.setText(f"{bnf.calculeaza_eroarea_abs(approximated_value, actual_value)}")
             self.statusbar.showMessage("Calcul efectuat cu succes!", 3000)
         except ValueError as e:
             QMessageBox.critical(self.main_window, "Eroare de Calcul", str(e))
             self.statusbar.showMessage("Calcul esuat!", 3000)
         self.plot_approximation(n_degree=grad)
+
 
     def set_interval(self):
         self.animation_manager.stop()
