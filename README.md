@@ -125,7 +125,6 @@ Once the application is running:
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-  * [Professor's Name] - For guidance on numerical analysis concepts.
   * [GeeksforGeeks](https://www.geeksforgeeks.org/)
   * [Stack Overflow](https://stackoverflow.com/)
   * [Shields.io](https://shields.io) for the cool badges.
